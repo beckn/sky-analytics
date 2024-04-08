@@ -111,6 +111,7 @@ export const fonts = {
 
 export const buttonCss = {
   primaryBtnColor: 'rgba(44, 93, 134, 1)',
+  primaryBtnHoverColor: 'rgb(40 85 123)',
   primaryTxtColor: '#FFF'
   
 }

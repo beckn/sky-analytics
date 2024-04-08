@@ -86,7 +86,7 @@ export default function Login() {
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
                             </FormControl>
-                            <Button marginTop={5} type="submit" variant="solid" width="100%" background={buttonCss?.primaryBtnColor} color={buttonCss?.primaryTxtColor}>
+                            <Button marginTop={5} type="submit" variant="solid" width="100%" background={buttonCss?.primaryBtnColor} color={buttonCss?.primaryTxtColor} _hover={{ bg: buttonCss?.primaryBtnHoverColor }}>
                                 {t('SIGN_IN')}
                             </Button>
 

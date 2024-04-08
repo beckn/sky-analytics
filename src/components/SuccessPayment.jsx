@@ -34,7 +34,7 @@ const SuccessPayment = (item, items) => {
         <Text fontSize={16} color="#353945" fontWeight={400}> {t('SENT_YOUR_DATA_REPORT')} </Text>
         <Text fontSize={16} color="#353945" fontWeight={600}> jondeo@gmail.com </Text>
 
-        <Button mt={5} type="submit" onClick={goToHome} width='20rem' variant="solid" background={buttonCss?.primaryBtnColor} color={buttonCss?.primaryTxtColor}>
+        <Button mt={5} type="submit" onClick={goToHome} width='20rem' variant="solid" background={buttonCss?.primaryBtnColor} color={buttonCss?.primaryTxtColor} _hover={{ bg: buttonCss?.primaryBtnHoverColor }}>
         {t('GO_BACK_HOME')}
       </Button>
       </VStack>

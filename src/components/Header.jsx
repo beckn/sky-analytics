@@ -4,16 +4,39 @@ import {
   Flex,
   Image,
   Text,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  IconButton,
 } from "@chakra-ui/react";
- import logo from "../assets/images/logo.png";
-import config from '../services/config.json';
+import {
+  AddIcon,
+  ExternalLinkIcon,
+  RepeatIcon,
+  EditIcon,
+} from "@chakra-ui/icons";
+import logo from "../assets/images/logo.png";
+import config from "../services/config.json";
 import { useTranslation } from "react-i18next";
 import { header, buttonCss } from "../styles/branding";
-import appConfig from '../assets/ui-config/homeConfig.json';
-
+import appConfig from "../assets/ui-config/homeConfig.json";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { MdOutlineHistory } from "react-icons/md";
+import { useLocation } from "react-router-dom"; 
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
   const { t } = useTranslation();
+  const location = useLocation(); 
+  const navigate = useNavigate();
+
+  // Check if the current path is "/"
+  const isHomePage = location.pathname === "/";
+
+  const handleOrderHistoryClick = () => {
+    navigate('/orderhistory');
+};
 
   return (
     <Box>
@@ -27,32 +50,52 @@ function Header() {
         position="fixed"
         fontFamily="system-ui"
         justifyContent="space-between"
-        zIndex={999} 
+        zIndex={999}
       >
         {/* Left-hand side */}
         <Flex alignItems="center">
-          {appConfig?.isLogoInHeader && 
-          <Image
-            src={header?.headerContent?.headerLogo}
-            alt="Forum Logo"
-            marginRight="2"
-            boxSize="60px" 
-          />}
-          <Text
+          {appConfig?.isLogoInHeader && (
+            <Image
+              src={header?.headerContent?.headerLogo}
+              alt="Forum Logo"
+              marginRight="2"
+              // boxSize="60px"
+            />
+          )}
+          {/* <Text
             fontSize={20}
-            fontWeight={600}
+            fontWeight={800}
             color={header?.headerContent?.appTitleColor}
-
           >
             {header?.headerContent?.title1}
-          </Text>
+          </Text> */}
         </Flex>
 
         {/* Right-hand side */}
-     
+        {!isHomePage && ( // Conditionally render the Menu
+          <Menu>
+            <MenuButton
+              as={IconButton}
+              aria-label="Options"
+              rightIcon={<BsThreeDotsVertical />}
+              variant="unstyled"
+              _hover={{
+                bg: "none",
+                border: "none",
+                color: "inherit",
+                padding: "0",
+              }}
+            />
+            <MenuList>
+              <MenuItem icon={<MdOutlineHistory fontSize="1.5em"/>} onClick={handleOrderHistoryClick}>
+                Order History
+              </MenuItem>
+            </MenuList>
+          </Menu>
+        )}
       </Flex>
       {/* Add padding to the top to prevent content from being hidden */}
-      <Box paddingTop='4rem' /> 
+      <Box paddingTop="4rem" />
     </Box>
   );
 }
