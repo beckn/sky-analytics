@@ -1,0 +1,325 @@
+{
+  "context": {
+    "domain": "dataset",
+    "location": {
+      "country": {
+        "code": "BT"
+      },
+      "city": {
+        "name": "sarpang"
+      }
+    },
+    "action": "on_confirm",
+    "version": "1.1.0",
+    "bap_id": "dataset-bap-id",
+    "bap_uri": "https://55a6-124-123-32-28.ngrok-free.app",
+    "bpp_id": "dataset-bpp-subId",
+    "bpp_uri": "https://4e21-124-123-32-28.ngrok-free.app",
+    "message_id": "58d0a142-68e3-48d9-92e8-fbc791e44949",
+    "transaction_id": "8100d125-76a7-4588-88be-81b97657cd09",
+    "timestamp": "2023-11-06T10:14:10.295Z",
+    "ttl": "PT10M"
+  },
+  "message": {
+    "order": {
+      "id": "b989c9a9-f603-4d44-b38d-26fd72286b40",
+      "provider": {
+        "id": "1",
+        "descriptor": {
+          "name": "Sky Analytics Data Ltd",
+          "additional_desc": {
+            "url" : "https://www.analytics.sky/",
+            "content_type" : "text/html"
+          },
+          "images": [
+            {
+              "url": "https://blueskyhq.io/banner.png"
+            }
+          ]
+        },
+        "rating": "4.8",
+        "locations": [
+          {
+            "id": "1",
+            "city": {
+              "name" : "sarpang"
+            }
+          },
+          {
+            "id": "2",
+            "city": {
+              "name" : "Thimphu"
+            }
+          },
+          {
+            "id": "3",
+            "city": {
+              "name" : "Punakha"
+            }
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "1",
+          "descriptor": {
+            "images": [
+              {
+                "url": "https://miro.medium.com/v2/resize:fit:1200/0*G65ic8fWYrnFZOAs.png"
+              }
+            ],
+            "additional_desc" : {
+              "url" : "https://www.analytics.sky/flood-prediction-data-23-24-sample/downloadsample",
+              "content_type" : "text/html"
+            },
+            "name": "Flood Prediction Data - Y23-24",
+            "short_desc": "Flood Prediction Data - Y23-24 provides forecasts and analysis for potential flooding events anticipated in the years 2023 to 2024.",
+            "long_desc": "<div><p><strong>Flood Prediction Data - Y23-24</strong> offers comprehensive forecasts, analyses, and insights regarding potential flooding occurrences expected between the years 2023 and 2024. This dataset integrates meteorological, hydrological, and geographical parameters to deliver detailed predictions encompassing flood risk levels, onset times, durations, extents, and potential impact areas. Leveraging advanced modeling techniques and historical data analysis, this dataset aims to provide stakeholders with actionable information to enhance preparedness, response, and resilience strategies against flooding events. By facilitating proactive measures and adaptive planning, <strong>Flood Prediction Data - Y23-24</strong> contributes to minimizing the adverse consequences of floods on communities, infrastructure, and the environment, fostering a safer and more sustainable future.</p></div>"
+          },
+          "time" : {
+            "range" : {
+              "start" : "2023-01-01T00:00:00.000Z",
+              "end": "2024-01-01T00:00:00.000Z"
+            }
+          },
+          "category_ids": [
+            "c1"
+          ],
+          "fulfillment_ids": [
+            "f1"
+          ],
+          "price": {
+            "listed_value": "20.0",
+            "currency": "USD",
+            "value": "20.0"
+          },
+          "tags": [
+            {
+              "descriptor": {
+                "name": "Model confidence levels"
+              },
+              "list": [
+                {
+                  "value": "98%"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "name": "Flood prediction datapoints"
+              },
+              "list": [
+                {
+                  "value": "Annual Exceedance Probability (AEP)"
+                },
+                {
+                  "value": "Flood onset date"
+                },
+                {
+                  "value": "Flood durationy"
+                },
+                {
+                  "value": "Flood depth"
+                },
+                {
+                  "value": "Flood extent"
+                },
+                {
+                  "value": "Flow peak flow velocity"
+                },
+                {
+                  "value": "Flood runoff volumes"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "name": "Spatial representation type"
+              },
+              "list": [
+                {
+                  "value": "Raster"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "name": "Spatial Coverage"
+              },
+              "list": [
+                {
+                  "value": "Companiganj"
+                },
+                {
+                  "value": "Fenchuganj"
+                },
+                {
+                  "value": "Gowanighat"
+                },
+                {
+                  "value": "Jaintiapur"
+                },
+                {
+                  "value": "Kanaighat"
+                },
+                {
+                  "value": "Sylhetsardar"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "name": "Spatial Resolutions"
+              },
+              "list": [
+                {
+                  "value": "10 m"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "name": "Temporal Coverage"
+              },
+              "list": [
+                {
+                  "value": "45 days"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "name": "Temporal Resolutions"
+              },
+              "list": [
+               
+                {
+                  "value": "7 days"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "name": "Data formats"
+              },
+              "list": [
+                {
+                  "value": "WaterML"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "name": "Subscription duration"
+              },
+              "list": [
+                {
+                  "value": "One time"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "fulfillments": [
+        {
+          "id": "f1",
+          "state": {
+            "descriptor" : {
+              "code" : "ORDER CONFIRMED",
+              "name" : "Your Order is confirmed"
+            },
+            "updated_at" : "2023-11-06T10:14:10.295Z"
+          },
+          "customer": {
+            "person": {
+              "name": "Sonam Dorji"
+            },
+            "contact": {
+              "email": "sonam@flitterlays.com"
+            }
+          },
+          "stops" : [
+            {
+              "type" : "CLOUD",
+              "instructions": {
+                "short_desc" : "Data set will be available soon"
+              }
+            }
+          ],
+          "tags": [
+            {
+              "descriptor": {
+                "name": "Terms of order"
+              },
+              "list": [
+                {
+                  "value": "https://www.analytics.sky/data/termsandcondition"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "USD",
+          "value": "22.5"
+        },
+        "breakup": [
+          {
+            "title": "dataset-fee",
+            "price": {
+              "currency": "USD",
+              "value": "20.0"
+            }
+          },
+          {
+            "title": "taxes",
+            "price": {
+              "currency": "INR",
+              "value": "2.5"
+            }
+          }
+        ]
+      },
+      "billing": {
+        "name": "Sonam Dorji",
+        "organization" : {
+          "descriptor": {
+            "name" : "FritterLays Corp Ltd"
+          },
+          "address" : "123 Main Street, Thimphu, Bhutan",
+          "city" : {
+            "name" : "Thimphu"
+          }
+        },
+        "phone" : "+9752x1234567",
+        "email" : "sonam@flitterlays.com" 
+      },
+      "payments": [
+        {
+          "status": "PAID",
+          "type": "PRE-FULFILLMENT",
+          "params": {
+            "transaction_id": "raz816863816313",
+            "amount": "22.50",
+            "currency": "USD",
+            "bank_code": "INB0004321",
+            "bank_account_number": "1234002341"
+          }
+        }
+      ],
+      "cancellation_terms": [
+        {
+          "cancellation_fee": {
+            "amount": {
+              "currency": "USD",
+              "value": "22.50"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

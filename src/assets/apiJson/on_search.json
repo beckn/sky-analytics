@@ -1,0 +1,1008 @@
+{
+  "context": {
+    "domain": "dataset",
+    "location": {
+      "country": {
+        "code": "BT"
+      },
+      "city": {
+        "name": "sarpang"
+      }
+    },
+    "action": "on_search",
+    "version": "1.1.0",
+    "bap_id": "dataset-bap-id",
+    "bap_uri": "https://55a6-124-123-32-28.ngrok-free.app",
+    "bpp_id": "dataset-bpp-subId",
+    "bpp_uri": "https://4e21-124-123-32-28.ngrok-free.app",
+    "message_id": "6104c0a3-d1d1-4ded-aaa4-76e4caf727ce",
+    "transaction_id": "8100d125-76a7-4588-88be-81b97657cd09",
+    "timestamp": "2023-11-06T09:41:09.708Z",
+    "ttl": "PT10M"
+  },
+  "message": {
+    "catalog": {
+      "descriptor": {
+        "name": "Sky Analytics Data Ltd"
+      },
+      "providers": [
+        {
+          "id": "1",
+          "descriptor": {
+            "name": "Sky Analytics Data Ltd",
+            "additional_desc": {
+              "url": "https://www.analytics.sky/",
+              "content_type": "text/html"
+            },
+            "images": [
+              {
+                "url": "https://blueskyhq.io/banner.png"
+              }
+            ]
+          },
+          "rating": "4.8",
+          "tags": [
+            {
+              "descriptor": {
+                "name": "Provider's Additional Information"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "name": "License"
+                  },
+                  "value": "Proprietary"
+                },
+                {
+                  "descriptor": {
+                    "name": "Provider's years in operation"
+                  },
+                  "value": "7"
+                }
+              ]
+            }
+          ],
+          "locations": [
+            {
+              "id": "1",
+              "city": {
+                "name": "sarpang"
+              }
+            },
+            {
+              "id": "2",
+              "city": {
+                "name": "Thimphu"
+              }
+            },
+            {
+              "id": "3",
+              "city": {
+                "name": "Punakha"
+              }
+            }
+          ],
+          "categories": [
+            {
+              "id": "c1",
+              "descriptor": {
+                "code": "flood-prediction",
+                "name": "Flood Prediction"
+              }
+            },
+            {
+              "id": "c2",
+              "descriptor": {
+                "code": "hailstorms-prediction",
+                "name": "Hailstorms Prediction"
+              }
+            },
+            {
+              "id": "c3",
+              "descriptor": {
+                "code": "earthquakes-prediction",
+                "name": "Earthquakes Prediction"
+              }
+            }
+          ],
+          "fulfillments": [
+            {
+              "id": "f1",
+              "type": "CLOUD"
+            },
+            {
+              "id": "f2",
+              "type": "REST"
+            },
+            {
+              "id": "f3",
+              "type": "EMAIL"
+            }
+          ],
+          "items": [
+            {
+              "id": "1",
+              "descriptor": {
+                "images": [
+                  {
+                    "url": "https://miro.medium.com/v2/resize:fit:1200/0*G65ic8fWYrnFZOAs.png"
+                  }
+                ],
+                "additional_desc": {
+                  "url": "https://www.analytics.sky/flood-prediction-data-23-24-sample/downloadsample",
+                  "content_type": "text/html"
+                },
+                "name": "Flood Prediction Data - Y23-24",
+                "short_desc": "Flood Prediction Data - Y23-24 provides forecasts and analysis for potential flooding events anticipated in the years 2023 to 2024.",
+                "long_desc": "<div><p><strong>Flood Prediction Data - Y23-24</strong> offers comprehensive forecasts, analyses, and insights regarding potential flooding occurrences expected between the years 2023 and 2024. This dataset integrates meteorological, hydrological, and geographical parameters to deliver detailed predictions encompassing flood risk levels, onset times, durations, extents, and potential impact areas. Leveraging advanced modeling techniques and historical data analysis, this dataset aims to provide stakeholders with actionable information to enhance preparedness, response, and resilience strategies against flooding events. By facilitating proactive measures and adaptive planning, <strong>Flood Prediction Data - Y23-24</strong> contributes to minimizing the adverse consequences of floods on communities, infrastructure, and the environment, fostering a safer and more sustainable future.</p></div>"
+              },
+              "time": {
+                "range": {
+                  "start": "2023-01-01T00:00:00.000Z",
+                  "end": "2024-01-01T00:00:00.000Z"
+                }
+              },
+              "matched": true,
+              "price": {
+                "listed_value": "20.0",
+                "currency": "USD",
+                "value": "20.0"
+              },
+              "recommended": true,
+              "location_ids": [
+                "1"
+              ],
+              "category_ids": [
+                "c1"
+              ],
+              "fulfillment_ids": [
+                "f1",
+                "f2",
+                "f3"
+              ],
+              "tags": [
+                {
+                  "descriptor": {
+                    "name": "Model confidence levels"
+                  },
+                  "list": [
+                    {
+                      "value": "98%"
+                    },
+                    {
+                      "value": "95%"
+                    },
+                    {
+                      "value": "90%"
+                    },
+                    {
+                      "value": "85%"
+                    },
+                    {
+                      "value": "80%"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Flood prediction datapoints"
+                  },
+                  "list": [
+                    {
+                      "value": "Annual Exceedance Probability (AEP)"
+                    },
+                    {
+                      "value": "Return periods"
+                    },
+                    {
+                      "value": "Flood onset date"
+                    },
+                    {
+                      "value": "Flood durationy"
+                    },
+                    {
+                      "value": "Flood depth"
+                    },
+                    {
+                      "value": "Flood extent"
+                    },
+                    {
+                      "value": "Flow peak flow velocity"
+                    },
+                    {
+                      "value": "Flood runoff coefficient"
+                    },
+                    {
+                      "value": "Flood runoff volumes"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Spatial representation type"
+                  },
+                  "list": [
+                    {
+                      "value": "Vector"
+                    },
+                    {
+                      "value": "Raster"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Spatial Coverage"
+                  },
+                  "list": [
+                    {
+                      "value": "Balaganj"
+                    },
+                    {
+                      "value": "Beanibazar"
+                    },
+                    {
+                      "value": "Bishwanath"
+                    },
+                    {
+                      "value": "Companiganj"
+                    },
+                    {
+                      "value": "Fenchuganj"
+                    },
+                    {
+                      "value": "Gopalganj"
+                    },
+                    {
+                      "value": "Gowanighat"
+                    },
+                    {
+                      "value": "Jaintiapur"
+                    },
+                    {
+                      "value": "Kanaighat"
+                    },
+                    {
+                      "value": "Sylhetsardar"
+                    },
+                    {
+                      "value": "Zakiganj"
+                    },
+                    {
+                      "value": "Dakshinsurma"
+                    },
+                    {
+                      "value": "Osmaninagar"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Spatial Resolutions"
+                  },
+                  "list": [
+                    {
+                      "value": "10 m"
+                    },
+                    {
+                      "value": "80 m"
+                    },
+                    {
+                      "value": "1 km"
+                    },
+                    {
+                      "value": "2.5 km"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Temporal Coverage"
+                  },
+                  "list": [
+                    {
+                      "value": "5 days"
+                    },
+                    {
+                      "value": "10 days"
+                    },
+                    {
+                      "value": "15 days"
+                    },
+                    {
+                      "value": "30 days"
+                    },
+                    {
+                      "value": "45 days"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Temporal Resolutions"
+                  },
+                  "list": [
+                    {
+                      "value": "12 hours"
+                    },
+                    {
+                      "value": "1 day"
+                    },
+                    {
+                      "value": "7 days"
+                    },
+                    {
+                      "value": "15 days"
+                    },
+                    {
+                      "value": "30 days"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Data formats"
+                  },
+                  "list": [
+                    {
+                      "value": "WaterML"
+                    },
+                    {
+                      "value": "BUFR"
+                    },
+                    {
+                      "value": "Geo JSON"
+                    },
+                    {
+                      "value": "Shapefiles"
+                    },
+                    {
+                      "value": "NetCDF"
+                    },
+                    {
+                      "value": "CSV"
+                    },
+                    {
+                      "value": "SQL"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Subscription duration"
+                  },
+                  "list": [
+                    {
+                      "value": "One time"
+                    },
+                    {
+                      "value": "7 days"
+                    },
+                    {
+                      "value": "15 days"
+                    },
+                    {
+                      "value": "1 month"
+                    },
+                    {
+                      "value": "2 months"
+                    },
+                    {
+                      "value": "3 months"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Dataset Attribute"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "name": "Size"
+                      },
+                      "value": "20MB"
+                    },
+                    {
+                      "descriptor": {
+                        "name": "Last update timestamp"
+                      },
+                      "value": "24 Feb 2024 23:21"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "2",
+              "descriptor": {
+                "images": [
+                  {
+                    "url": "https://miro.medium.com/v2/resize:fit:1200/0*G65ic8fWYrnFZOAs.png"
+                  }
+                ],
+                "additional_desc": {
+                  "url": "https://www.analytics.sky/flood-prediction-data-20-24-sample/downloadsample",
+                  "content_type": "text/html"
+                },
+                "name": "Flood Prediction Data - Y20-24",
+                "short_desc": "Flood Prediction Data - Y20-24 provides forecasts and analysis for potential flooding events anticipated in the years 2020 to 2024.",
+                "long_desc": "<div><p><strong>Flood Prediction Data - Y20-24</strong> offers comprehensive forecasts, analyses, and insights regarding potential flooding occurrences expected between the years 2020 and 2024. This dataset integrates meteorological, hydrological, and geographical parameters to deliver detailed predictions encompassing flood risk levels, onset times, durations, extents, and potential impact areas. Leveraging advanced modeling techniques and historical data analysis, this dataset aims to provide stakeholders with actionable information to enhance preparedness, response, and resilience strategies against flooding events. By facilitating proactive measures and adaptive planning, <strong>Flood Prediction Data - Y23-24</strong> contributes to minimizing the adverse consequences of floods on communities, infrastructure, and the environment, fostering a safer and more sustainable future.</p></div>"
+              },
+              "time": {
+                "range": {
+                  "start": "2020-01-01T00:00:00.000Z",
+                  "end": "2024-01-01T00:00:00.000Z"
+                }
+              },
+              "matched": true,
+              "price": {
+                "listed_value": "50.0",
+                "currency": "USD",
+                "value": "50.0"
+              },
+              "recommended": true,
+              "location_ids": [
+                "1"
+              ],
+              "category_ids": [
+                "c1"
+              ],
+              "fulfillment_ids": [
+                "f1",
+                "f2",
+                "f3"
+              ],
+              "tags": [
+                {
+                  "descriptor": {
+                    "name": "Model confidence levels"
+                  },
+                  "list": [
+                    {
+                      "value": "98%"
+                    },
+                    {
+                      "value": "95%"
+                    },
+                    {
+                      "value": "90%"
+                    },
+                    {
+                      "value": "85%"
+                    },
+                    {
+                      "value": "80%"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Flood prediction datapoints"
+                  },
+                  "list": [
+                    {
+                      "value": "Annual Exceedance Probability (AEP)"
+                    },
+                    {
+                      "value": "Return periods"
+                    },
+                    {
+                      "value": "Flood onset date"
+                    },
+                    {
+                      "value": "Flood durationy"
+                    },
+                    {
+                      "value": "Flood depth"
+                    },
+                    {
+                      "value": "Flood extent"
+                    },
+                    {
+                      "value": "Flow peak flow velocity"
+                    },
+                    {
+                      "value": "Flood runoff coefficient"
+                    },
+                    {
+                      "value": "Flood runoff volumes"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Spatial representation type"
+                  },
+                  "list": [
+                    {
+                      "value": "Vector"
+                    },
+                    {
+                      "value": "Raster"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Spatial Coverage"
+                  },
+                  "list": [
+                    {
+                      "value": "Balaganj"
+                    },
+                    {
+                      "value": "Beanibazar"
+                    },
+                    {
+                      "value": "Bishwanath"
+                    },
+                    {
+                      "value": "Companiganj"
+                    },
+                    {
+                      "value": "Fenchuganj"
+                    },
+                    {
+                      "value": "Gopalganj"
+                    },
+                    {
+                      "value": "Gowanighat"
+                    },
+                    {
+                      "value": "Jaintiapur"
+                    },
+                    {
+                      "value": "Kanaighat"
+                    },
+                    {
+                      "value": "Sylhetsardar"
+                    },
+                    {
+                      "value": "Zakiganj"
+                    },
+                    {
+                      "value": "Dakshinsurma"
+                    },
+                    {
+                      "value": "Osmaninagar"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Spatial Resolutions"
+                  },
+                  "list": [
+                    {
+                      "value": "10 m"
+                    },
+                    {
+                      "value": "80 m"
+                    },
+                    {
+                      "value": "1 km"
+                    },
+                    {
+                      "value": "2.5 km"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Temporal Coverage"
+                  },
+                  "list": [
+                    {
+                      "value": "5 days"
+                    },
+                    {
+                      "value": "10 days"
+                    },
+                    {
+                      "value": "15 days"
+                    },
+                    {
+                      "value": "30 days"
+                    },
+                    {
+                      "value": "45 days"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Temporal Resolutions"
+                  },
+                  "list": [
+                    {
+                      "value": "12 hours"
+                    },
+                    {
+                      "value": "1 day"
+                    },
+                    {
+                      "value": "7 days"
+                    },
+                    {
+                      "value": "15 days"
+                    },
+                    {
+                      "value": "30 days"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Data formats"
+                  },
+                  "list": [
+                    {
+                      "value": "WaterML"
+                    },
+                    {
+                      "value": "BUFR"
+                    },
+                    {
+                      "value": "Geo JSON"
+                    },
+                    {
+                      "value": "Shapefiles"
+                    },
+                    {
+                      "value": "NetCDF"
+                    },
+                    {
+                      "value": "CSV"
+                    },
+                    {
+                      "value": "SQL"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Subscription duration"
+                  },
+                  "list": [
+                    {
+                      "value": "One time"
+                    },
+                    {
+                      "value": "7 days"
+                    },
+                    {
+                      "value": "15 days"
+                    },
+                    {
+                      "value": "1 month"
+                    },
+                    {
+                      "value": "2 months"
+                    },
+                    {
+                      "value": "3 months"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Dataset Attribute"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "name": "Size"
+                      },
+                      "value": "20MB"
+                    },
+                    {
+                      "descriptor": {
+                        "name": "Last update timestamp"
+                      },
+                      "value": "24 Feb 2024 23:21"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "3",
+              "descriptor": {
+                "images": [
+                  {
+                    "url": "https://miro.medium.com/v2/resize:fit:1200/0*G65ic8fWYrnFZOAs.png"
+                  }
+                ],
+                "additional_desc": {
+                  "url": "https://www.analytics.sky/flood-prediction-data-23-24-sample/downloadsample",
+                  "content_type": "text/html"
+                },
+                "name": "Flood Prediction Data - Y23-24",
+                "short_desc": "Flood Prediction Data - Y23-24 provides forecasts and analysis for potential flooding events anticipated in the years 2023 to 2024.",
+                "long_desc": "<div><p><strong>Flood Prediction Data - Y23-24</strong> offers comprehensive forecasts, analyses, and insights regarding potential flooding occurrences expected between the years 2023 and 2024. This dataset integrates meteorological, hydrological, and geographical parameters to deliver detailed predictions encompassing flood risk levels, onset times, durations, extents, and potential impact areas. Leveraging advanced modeling techniques and historical data analysis, this dataset aims to provide stakeholders with actionable information to enhance preparedness, response, and resilience strategies against flooding events. By facilitating proactive measures and adaptive planning, <strong>Flood Prediction Data - Y23-24</strong> contributes to minimizing the adverse consequences of floods on communities, infrastructure, and the environment, fostering a safer and more sustainable future.</p></div>"
+              },
+              "time": {
+                "range": {
+                  "start": "2023-01-01T00:00:00.000Z",
+                  "end": "2024-01-01T00:00:00.000Z"
+                }
+              },
+              "matched": false,
+              "price": {
+                "listed_value": "30.0",
+                "currency": "USD",
+                "value": "30.0"
+              },
+              "recommended": true,
+              "location_ids": [
+                "1",
+                "2",
+                "3"
+              ],
+              "category_ids": [
+                "c1"
+              ],
+              "fulfillment_ids": [
+                "f1",
+                "f2"
+              ],
+              "tags": [
+                {
+                  "descriptor": {
+                    "name": "Model confidence levels"
+                  },
+                  "list": [
+                    {
+                      "value": "98%"
+                    },
+                    {
+                      "value": "95%"
+                    },
+                    {
+                      "value": "90%"
+                    },
+                    {
+                      "value": "85%"
+                    },
+                    {
+                      "value": "80%"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Flood prediction datapoints"
+                  },
+                  "list": [
+                    {
+                      "value": "Annual Exceedance Probability (AEP)"
+                    },
+                    {
+                      "value": "Return periods"
+                    },
+                    {
+                      "value": "Flood onset date"
+                    },
+                    {
+                      "value": "Flood durationy"
+                    },
+                    {
+                      "value": "Flood depth"
+                    },
+                    {
+                      "value": "Flood extent"
+                    },
+                    {
+                      "value": "Flow peak flow velocity"
+                    },
+                    {
+                      "value": "Flood runoff coefficient"
+                    },
+                    {
+                      "value": "Flood runoff volumes"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Spatial representation type"
+                  },
+                  "list": [
+                    {
+                      "value": "Vector"
+                    },
+                    {
+                      "value": "Raster"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Spatial Coverage"
+                  },
+                  "list": [
+                    {
+                      "value": "Balaganj"
+                    },
+                    {
+                      "value": "Beanibazar"
+                    },
+                    {
+                      "value": "Bishwanath"
+                    },
+                    {
+                      "value": "Companiganj"
+                    },
+                    {
+                      "value": "Fenchuganj"
+                    },
+                    {
+                      "value": "Gopalganj"
+                    },
+                    {
+                      "value": "Gowanighat"
+                    },
+                    {
+                      "value": "Jaintiapur"
+                    },
+                    {
+                      "value": "Kanaighat"
+                    },
+                    {
+                      "value": "Sylhetsardar"
+                    },
+                    {
+                      "value": "Zakiganj"
+                    },
+                    {
+                      "value": "Dakshinsurma"
+                    },
+                    {
+                      "value": "Osmaninagar"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Spatial Resolutions"
+                  },
+                  "list": [
+                    {
+                      "value": "10 m"
+                    },
+                    {
+                      "value": "80 m"
+                    },
+                    {
+                      "value": "1 km"
+                    },
+                    {
+                      "value": "2.5 km"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Temporal Coverage"
+                  },
+                  "list": [
+                    {
+                      "value": "5 days"
+                    },
+                    {
+                      "value": "10 days"
+                    },
+                    {
+                      "value": "15 days"
+                    },
+                    {
+                      "value": "30 days"
+                    },
+                    {
+                      "value": "45 days"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Temporal Resolutions"
+                  },
+                  "list": [
+                    {
+                      "value": "12 hours"
+                    },
+                    {
+                      "value": "1 day"
+                    },
+                    {
+                      "value": "7 days"
+                    },
+                    {
+                      "value": "15 days"
+                    },
+                    {
+                      "value": "30 days"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Data formats"
+                  },
+                  "list": [
+                    {
+                      "value": "WaterML"
+                    },
+                    {
+                      "value": "BUFR"
+                    },
+                    {
+                      "value": "Geo JSON"
+                    },
+                    {
+                      "value": "Shapefiles"
+                    },
+                    {
+                      "value": "NetCDF"
+                    },
+                    {
+                      "value": "CSV"
+                    },
+                    {
+                      "value": "SQL"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Subscription duration"
+                  },
+                  "list": [
+                    {
+                      "value": "One time"
+                    },
+                    {
+                      "value": "7 days"
+                    },
+                    {
+                      "value": "15 days"
+                    },
+                    {
+                      "value": "1 month"
+                    },
+                    {
+                      "value": "2 months"
+                    },
+                    {
+                      "value": "3 months"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "name": "Dataset Attribute"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "name": "Size"
+                      },
+                      "value": "20MB"
+                    },
+                    {
+                      "descriptor": {
+                        "name": "Last update timestamp"
+                      },
+                      "value": "24 Feb 2024 23:21"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
