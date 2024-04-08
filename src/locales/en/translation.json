@@ -58,5 +58,7 @@
     "GO_BACK_HOME":"Go Back Home",
     "ORDER_HISTORY":"Order History",
     "VIEW_BALANCE":"View Balance",
-    "YEARS_IN_OPERATION":" years in operation"
+    "YEARS_IN_OPERATION":" years in operation",
+    "REQUEST_OVERVIEW" : "Request Overview",
+    "SEND_REQUEST" : "Send Request"
 }

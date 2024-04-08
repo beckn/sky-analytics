@@ -14,6 +14,7 @@ import Payment from './pages/Payment';
 import SuccessPayment from './components/SuccessPayment';
 import { Box } from '@chakra-ui/react';
 import OrderHistory from './pages/OrderHistory';
+import RequestOverview from './pages/RequestOverview';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/success" element={<SuccessPayment />} />
           <Route path="/confirm/:itemId" element={<MediaPage />} />
           <Route path="/orderhistory" element={<OrderHistory/>}/>
+          <Route path="/requestoverview" element={<RequestOverview/>}/>
         </Routes>
       </Router>
     </>
