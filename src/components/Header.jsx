@@ -33,7 +33,7 @@ function Header() {
         <Flex alignItems="center">
           {appConfig?.isLogoInHeader && 
           <Image
-            src={header?.headerContent?.logoSrc}
+            src={header?.headerContent?.headerLogo}
             alt="Forum Logo"
             marginRight="2"
             boxSize="60px" 

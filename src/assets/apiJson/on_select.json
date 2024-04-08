@@ -6,7 +6,7 @@
         "code": "BT"
       },
       "city": {
-        "name": "Thimpu"
+        "name": "sarpang"
       }
     },
     "action": "on_select",
@@ -23,31 +23,37 @@
   "message": {
     "order": {
       "provider": {
-        "id": "2",
+        "id": "1",
         "descriptor": {
-          "name": "AccuWeather",
+          "name": "Sky Analytics Data Ltd",
           "additional_desc": {
-            "url" : "https://www.accuweather.com/",
-            "content_type" : "text/html"
+            "url": "https://www.analytics.sky/",
+            "content_type": "text/html"
           },
           "images": [
             {
-              "url": "https://static1.anpoimages.com/wordpress/wp-content/uploads/2020/04/accuweather-new-logo-hero.png"
+              "url": "https://blueskyhq.io/banner.png"
             }
           ]
         },
-        "rating": "4.9",
+        "rating": "4.8",
         "locations": [
           {
             "id": "1",
             "city": {
-              "name" : "sarpang"
+              "name": "sarpang"
             }
           },
           {
             "id": "2",
             "city": {
-              "name" : "Thimphu"
+              "name": "Thimphu"
+            }
+          },
+          {
+            "id": "3",
+            "city": {
+              "name": "Punakha"
             }
           }
         ]
@@ -58,21 +64,21 @@
           "descriptor": {
             "images": [
               {
-                "url": "https://www.analyticssteps.com/backend/media/thumbnail/6006173/6278986_1571298721_Weather_Forecoast_Graphics.jpg"
+                "url": "https://miro.medium.com/v2/resize:fit:1200/0*G65ic8fWYrnFZOAs.png"
               }
             ],
-            "additional_desc" : {
-              "url" : "https://www.accuweather.com/weather-forecast-sample/downloadsample",
-              "content_type" : "text/html"
+            "additional_desc": {
+              "url": "https://www.analytics.sky/flood-prediction-data-23-24-sample/downloadsample",
+              "content_type": "text/html"
             },
-            "name": "Weather Forecast Data",
-            "short_desc": "Access accurate and up-to-date weather forecasts for Sarpang, providing essential information on temperature, precipitation, wind speed, and more.",
-            "long_desc": "<p>Our <strong>Weather Forecast Data of Sarpang</strong> delivers reliable and timely forecasts tailored specifically for the region. Stay informed about current and future weather conditions, including temperature variations, precipitation levels, wind speed patterns, and more. Whether you're planning outdoor activities, agricultural operations, or travel itineraries, our comprehensive weather forecasts for Sarpang ensure that you're well-prepared for any weather-related situations. Trust our data to make informed decisions and optimize your plans, keeping you ahead of the weather and ready for whatever nature brings.</p>"
+            "name": "Flood Prediction Data - Y23-24",
+            "short_desc": "Flood Prediction Data - Y23-24 provides forecasts and analysis for potential flooding events anticipated in the years 2023 to 2024.",
+            "long_desc": "<div><p><strong>Flood Prediction Data - Y23-24</strong> offers comprehensive forecasts, analyses, and insights regarding potential flooding occurrences expected between the years 2023 and 2024. This dataset integrates meteorological, hydrological, and geographical parameters to deliver detailed predictions encompassing flood risk levels, onset times, durations, extents, and potential impact areas. Leveraging advanced modeling techniques and historical data analysis, this dataset aims to provide stakeholders with actionable information to enhance preparedness, response, and resilience strategies against flooding events. By facilitating proactive measures and adaptive planning, <strong>Flood Prediction Data - Y23-24</strong> contributes to minimizing the adverse consequences of floods on communities, infrastructure, and the environment, fostering a safer and more sustainable future.</p></div>"
           },
-          "time" : {
-            "range" : {
-              "start" : "2024-03-01T00:00:00.000Z",
-              "end" : "2024-03-31T00:00:00.000Z"
+          "time": {
+            "range": {
+              "start": "2023-01-01T00:00:00.000Z",
+              "end": "2024-01-01T00:00:00.000Z"
             }
           },
           "category_ids": [
@@ -82,40 +88,46 @@
             "f1"
           ],
           "price": {
-            "listed_value": "4.0",
+            "listed_value": "20.0",
             "currency": "USD",
-            "value": "4.0"
+            "value": "20.0"
           },
           "tags": [
             {
               "descriptor": {
-                "name": "Forecast confidence levels"
+                "name": "Model confidence levels"
               },
               "list": [
                 {
-                  "value": "90%"
+                  "value": "98%"
                 }
               ]
             },
             {
               "descriptor": {
-                "name": "Weather datapoints"
+                "name": "Flood prediction datapoints"
               },
               "list": [
                 {
-                  "value": "Temperature"
+                  "value": "Annual Exceedance Probability (AEP)"
                 },
                 {
-                  "value": "Horizontal wind velocity"
+                  "value": "Flood onset date"
                 },
                 {
-                  "value": "Relative Humidity"
+                  "value": "Flood durationy"
                 },
                 {
-                  "value": "Surface pressure"
+                  "value": "Flood depth"
                 },
                 {
-                  "value": "Precipitation"
+                  "value": "Flood extent"
+                },
+                {
+                  "value": "Flow peak flow velocity"
+                },
+                {
+                  "value": "Flood runoff volumes"
                 }
               ]
             },
@@ -160,7 +172,7 @@
               },
               "list": [
                 {
-                  "value": "2.5 km"
+                  "value": "10 m"
                 }
               ]
             },
@@ -170,18 +182,16 @@
               },
               "list": [
                 {
-                  "value": "Historical (1 year)"
-                },
-                {
-                  "value": "Forecast (15 days)"
+                  "value": "45 days"
                 }
               ]
             },
             {
               "descriptor": {
-                "name": "Forecast Temporal Resolutions"
+                "name": "Temporal Resolutions"
               },
               "list": [
+               
                 {
                   "value": "7 days"
                 }
@@ -208,27 +218,26 @@
               ]
             }
           ]
-          
         }
       ],
       "quote": {
         "price": {
           "currency": "USD",
-          "value": "4.5"
+          "value": "22.5"
         },
         "breakup": [
           {
             "title": "dataset-fee",
             "price": {
               "currency": "USD",
-              "value": "4.0"
+              "value": "20.0"
             }
           },
           {
             "title": "taxes",
             "price": {
               "currency": "INR",
-              "value": "0.5"
+              "value": "2.5"
             }
           }
         ]

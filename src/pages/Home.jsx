@@ -222,7 +222,7 @@ const Home = () => {
 
   return (
     <>
-      <SubHeader title={t("Search Results")} cartItemCount={2} />
+      <SubHeader title={t("SEARCH_RESULT")} cartItemCount={2} />
       <Box p={4} marginBottom="60px" marginX={{ base: 4, md: 8, lg: 16 }}>
         {/* search bar */}
         <Flex alignItems="center">

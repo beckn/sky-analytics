@@ -1,6 +1,7 @@
 // import headerImage from "../assets/headerLogo.svg";
 import translateImage from "../assets/translate.png";
 import appIcon from '../assets/images/logo.png'
+import headerLogo from '../assets/images/header_logo.png'
 
 const colors = {
   brand: {
@@ -31,11 +32,12 @@ export default colors;
 export const header = {
   headerContent: {
     id: "logo",
-    title1: "Dragon Foods",
+    title1: "Sky Analytics",
     title2: "Platform for Climate Resilient Data Highways",
     logoSrc: appIcon,
-    appTitleColor: "#00B088",
-    headerBgColor: "#EFEFEF"
+    appTitleColor: "rgba(44, 93, 134, 1)",
+    headerBgColor: "#EFEFEF",
+    headerLogo : headerLogo,
   },
   languageDropdown: {
     translateImg: translateImage,
@@ -108,7 +110,7 @@ export const fonts = {
 };
 
 export const buttonCss = {
-  primaryBtnColor: '#00B088',
+  primaryBtnColor: 'rgba(44, 93, 134, 1)',
   primaryTxtColor: '#FFF'
   
 }

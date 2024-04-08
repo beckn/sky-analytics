@@ -21,6 +21,7 @@ import SubHeader from "../components/SubHeader"; // Assuming correct path
 import Footer from "../components/Footer"; // Assuming correct path
 import { header, buttonCss } from "../styles/branding";
 import onSearch from "../assets/apiJson/on_search.json";
+import { MdOutlineLocationOn } from "react-icons/md";
 
 const Search = () => {
   const { t } = useTranslation();

@@ -28,7 +28,7 @@ const OrderHistory = () => {
 
   return (
     <Box>
-      <SubHeader title={t("Order History")} cartItemCount={2} />
+      <SubHeader title={t("ORDER_HISTORY")} cartItemCount={2} />
       <Box maxWidth="1200px" mx="auto" px={4}>
         {items.items.map((item, index) => (
           <Box
