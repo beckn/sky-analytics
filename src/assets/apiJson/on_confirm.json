@@ -6,7 +6,7 @@
         "code": "BT"
       },
       "city": {
-        "name": "sarpang"
+        "name": "Thimpu"
       }
     },
     "action": "on_confirm",
@@ -24,20 +24,20 @@
     "order": {
       "id": "b989c9a9-f603-4d44-b38d-26fd72286b40",
       "provider": {
-        "id": "1",
+        "id": "2",
         "descriptor": {
-          "name": "Sky Analytics Data Ltd",
+          "name": "AccuWeather",
           "additional_desc": {
-            "url" : "https://www.analytics.sky/",
+            "url" : "https://www.accuweather.com/",
             "content_type" : "text/html"
           },
           "images": [
             {
-              "url": "https://blueskyhq.io/banner.png"
+              "url": "https://static1.anpoimages.com/wordpress/wp-content/uploads/2020/04/accuweather-new-logo-hero.png"
             }
           ]
         },
-        "rating": "4.8",
+        "rating": "4.9",
         "locations": [
           {
             "id": "1",
@@ -50,12 +50,6 @@
             "city": {
               "name" : "Thimphu"
             }
-          },
-          {
-            "id": "3",
-            "city": {
-              "name" : "Punakha"
-            }
           }
         ]
       },
@@ -65,21 +59,21 @@
           "descriptor": {
             "images": [
               {
-                "url": "https://miro.medium.com/v2/resize:fit:1200/0*G65ic8fWYrnFZOAs.png"
+                "url": "https://www.analyticssteps.com/backend/media/thumbnail/6006173/6278986_1571298721_Weather_Forecoast_Graphics.jpg"
               }
             ],
             "additional_desc" : {
-              "url" : "https://www.analytics.sky/flood-prediction-data-23-24-sample/downloadsample",
+              "url" : "https://www.accuweather.com/weather-forecast-sample/downloadsample",
               "content_type" : "text/html"
             },
-            "name": "Flood Prediction Data - Y23-24",
-            "short_desc": "Flood Prediction Data - Y23-24 provides forecasts and analysis for potential flooding events anticipated in the years 2023 to 2024.",
-            "long_desc": "<div><p><strong>Flood Prediction Data - Y23-24</strong> offers comprehensive forecasts, analyses, and insights regarding potential flooding occurrences expected between the years 2023 and 2024. This dataset integrates meteorological, hydrological, and geographical parameters to deliver detailed predictions encompassing flood risk levels, onset times, durations, extents, and potential impact areas. Leveraging advanced modeling techniques and historical data analysis, this dataset aims to provide stakeholders with actionable information to enhance preparedness, response, and resilience strategies against flooding events. By facilitating proactive measures and adaptive planning, <strong>Flood Prediction Data - Y23-24</strong> contributes to minimizing the adverse consequences of floods on communities, infrastructure, and the environment, fostering a safer and more sustainable future.</p></div>"
+            "name": "Weather Forecast Data",
+            "short_desc": "Access accurate and up-to-date weather forecasts for Sarpang, providing essential information on temperature, precipitation, wind speed, and more.",
+            "long_desc": "<p>Our <strong>Weather Forecast Data of Sarpang</strong> delivers reliable and timely forecasts tailored specifically for the region. Stay informed about current and future weather conditions, including temperature variations, precipitation levels, wind speed patterns, and more. Whether you're planning outdoor activities, agricultural operations, or travel itineraries, our comprehensive weather forecasts for Sarpang ensure that you're well-prepared for any weather-related situations. Trust our data to make informed decisions and optimize your plans, keeping you ahead of the weather and ready for whatever nature brings.</p>"
           },
           "time" : {
             "range" : {
-              "start" : "2023-01-01T00:00:00.000Z",
-              "end": "2024-01-01T00:00:00.000Z"
+              "start" : "2024-03-01T00:00:00.000Z",
+              "end" : "2024-03-31T00:00:00.000Z"
             }
           },
           "category_ids": [
@@ -89,46 +83,40 @@
             "f1"
           ],
           "price": {
-            "listed_value": "20.0",
+            "listed_value": "4.0",
             "currency": "USD",
-            "value": "20.0"
+            "value": "4.0"
           },
           "tags": [
             {
               "descriptor": {
-                "name": "Model confidence levels"
+                "name": "Forecast confidence levels"
               },
               "list": [
                 {
-                  "value": "98%"
+                  "value": "90%"
                 }
               ]
             },
             {
               "descriptor": {
-                "name": "Flood prediction datapoints"
+                "name": "Weather datapoints"
               },
               "list": [
                 {
-                  "value": "Annual Exceedance Probability (AEP)"
+                  "value": "Temperature"
                 },
                 {
-                  "value": "Flood onset date"
+                  "value": "Horizontal wind velocity"
                 },
                 {
-                  "value": "Flood durationy"
+                  "value": "Relative Humidity"
                 },
                 {
-                  "value": "Flood depth"
+                  "value": "Surface pressure"
                 },
                 {
-                  "value": "Flood extent"
-                },
-                {
-                  "value": "Flow peak flow velocity"
-                },
-                {
-                  "value": "Flood runoff volumes"
+                  "value": "Precipitation"
                 }
               ]
             },
@@ -173,7 +161,7 @@
               },
               "list": [
                 {
-                  "value": "10 m"
+                  "value": "2.5 km"
                 }
               ]
             },
@@ -183,16 +171,18 @@
               },
               "list": [
                 {
-                  "value": "45 days"
+                  "value": "Historical (1 year)"
+                },
+                {
+                  "value": "Forecast (15 days)"
                 }
               ]
             },
             {
               "descriptor": {
-                "name": "Temporal Resolutions"
+                "name": "Forecast Temporal Resolutions"
               },
               "list": [
-               
                 {
                   "value": "7 days"
                 }
@@ -219,6 +209,7 @@
               ]
             }
           ]
+          
         }
       ],
       "fulfillments": [
@@ -233,17 +224,17 @@
           },
           "customer": {
             "person": {
-              "name": "Sonam Dorji"
+              "name": "Tenzin Dorji"
             },
             "contact": {
-              "email": "sonam@flitterlays.com"
+              "email": "tenzin.dorji@skyanalytics.bt"
             }
           },
           "stops" : [
             {
               "type" : "CLOUD",
               "instructions": {
-                "short_desc" : "Data set will be available soon"
+                "short_desc" : "Data set will be available post Order Confirmation"
               }
             }
           ],
@@ -254,48 +245,49 @@
               },
               "list": [
                 {
-                  "value": "https://www.analytics.sky/data/termsandcondition"
+                  "value": "https://www.accuweather.com/data/termsandcondition"
                 }
               ]
             }
           ]
+
         }
       ],
       "quote": {
         "price": {
           "currency": "USD",
-          "value": "22.5"
+          "value": "4.5"
         },
         "breakup": [
           {
             "title": "dataset-fee",
             "price": {
               "currency": "USD",
-              "value": "20.0"
+              "value": "4.0"
             }
           },
           {
             "title": "taxes",
             "price": {
               "currency": "INR",
-              "value": "2.5"
+              "value": "0.5"
             }
           }
         ]
       },
       "billing": {
-        "name": "Sonam Dorji",
+        "name": "Tenzin Dorji",
         "organization" : {
           "descriptor": {
-            "name" : "FritterLays Corp Ltd"
+            "name" : "Sky Analytics Bhutan Pvt. Ltd."
           },
-          "address" : "123 Main Street, Thimphu, Bhutan",
+          "address" : "45 Cloud Avenue, Thimphu, Bhutan",
           "city" : {
             "name" : "Thimphu"
           }
         },
-        "phone" : "+9752x1234567",
-        "email" : "sonam@flitterlays.com" 
+        "phone" : "+9752345678",
+        "email" : "tenzin.dorji@skyanalytics.bt" 
       },
       "payments": [
         {
@@ -303,7 +295,7 @@
           "type": "PRE-FULFILLMENT",
           "params": {
             "transaction_id": "raz816863816313",
-            "amount": "22.50",
+            "amount": "4.50",
             "currency": "USD",
             "bank_code": "INB0004321",
             "bank_account_number": "1234002341"
@@ -315,7 +307,7 @@
           "cancellation_fee": {
             "amount": {
               "currency": "USD",
-              "value": "22.50"
+              "value": "4.50"
             }
           }
         }

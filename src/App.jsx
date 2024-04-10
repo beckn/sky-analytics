@@ -15,7 +15,8 @@ import SuccessPayment from './components/SuccessPayment';
 import { Box } from '@chakra-ui/react';
 import OrderHistory from './pages/OrderHistory';
 import RequestOverview from './pages/RequestOverview';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <>
@@ -34,6 +35,8 @@ function App() {
           <Route path="/requestoverview" element={<RequestOverview/>}/>
         </Routes>
       </Router>
+      <ToastContainer />
+
     </>
   )
 }

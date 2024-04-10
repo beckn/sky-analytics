@@ -1,6 +1,6 @@
 {
     "isFilter": true,
-    "isLogoInHeader": true,
+    "isLogoInHeader": false,
     "isFooter": true,
     "filters": [
         {

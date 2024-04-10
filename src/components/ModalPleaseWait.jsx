@@ -26,9 +26,9 @@ const ModalPleaseWait = () => {
       <Center>
         <ModalContent>
           <ModalBody textAlign="center" my={10}>
-          <Spinner size="md" fontWeight={600} borderWidth={4} color={buttonCss?.primaryBtnColor} />
+          <Spinner mb={5} size="md" width={'40px'} height={'40px'} fontWeight={600} borderWidth={4} color={buttonCss?.primaryBtnColor} />
           <Text fontSize={20} fontWeight={600}> {t('PLEASE_WAIT')}</Text>
-          <Text fontSize={20} mt={4} fontWeight={400}>{t('WE_PROCESS_YOUR_PAYMENT')}</Text>
+          <Text fontSize={20} mt={1} fontWeight={400}>{t('WE_PROCESS_YOUR_PAYMENT')}</Text>
         </ModalBody>
 
         </ModalContent>

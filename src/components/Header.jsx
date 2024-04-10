@@ -56,19 +56,17 @@ function Header() {
         <Flex alignItems="center">
           {appConfig?.isLogoInHeader && (
             <Image
+              src={header?.headerContent?.logoSrc}
+              alt="Forum Logo"
+              marginRight="2"
+              boxSize="60px"
+            />
+          )}
+          <Image
               src={header?.headerContent?.headerLogo}
               alt="Forum Logo"
               marginRight="2"
-              // boxSize="60px"
             />
-          )}
-          {/* <Text
-            fontSize={20}
-            fontWeight={800}
-            color={header?.headerContent?.appTitleColor}
-          >
-            {header?.headerContent?.title1}
-          </Text> */}
         </Flex>
 
         {/* Right-hand side */}
@@ -88,7 +86,7 @@ function Header() {
             />
             <MenuList>
               <MenuItem icon={<MdOutlineHistory fontSize="1.5em"/>} onClick={handleOrderHistoryClick}>
-                Order History
+               {t('ORDER_HISTORY')}
               </MenuItem>
             </MenuList>
           </Menu>

@@ -162,7 +162,14 @@ export const getallContent = async (params = {}, header = {}) => {
   };
 
   try {
-    const result = await post(`${baseUrl}/${env?.VITE_API_ROUTE}/${apiPath.search}`, params);
+    let apiUrl
+    if(env?.VITE_API_ROUTE)
+    {
+         apiUrl = `${env?.VITE_API_ROUTE}/${apiPath?.search}`
+    }else{
+       apiUrl = `${apiPath.search}`
+    }
+    const result = await post(`${baseUrl}/${apiUrl}`, params);
     if (result.data) {
       return result.data;
     } else {
