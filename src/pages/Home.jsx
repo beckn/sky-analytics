@@ -55,8 +55,6 @@ const Home = () => {
   const searchResponse = async () => {
 
     try{
-    
-
     console.log({ env });
     let bodyData = {
       context: {
@@ -65,8 +63,6 @@ const Home = () => {
         version: "1.1.0",
         bap_id: env?.VITE_BAP_ID,
         bap_uri: env?.VITE_BAP_URI,
-        // bpp_id: "apurva.dev.bpp",
-        //bpp_uri: "https://bpp-dev.apurva.ai",
         transaction_id: transactionId,
         message_id: uuidv4(),
         timestamp: new Date().toISOString(),
@@ -115,13 +111,15 @@ const Home = () => {
     let response = await getallContent(bodyData);
     setLoading(false);
 
-    setItems(response?.responses[0]?.message?.catalog);
+   // setItems(response?.responses[0]?.message?.catalog);
+    setItems(response?.responses);
+
     setResContext(response?.responses[0]?.context);
     setRes(response?.responses);
 
     console.log(response);
 
-    if (
+   /* if (
       response &&
       response.data &&
       response.data[env?.VITE_DB_CACHE] &&
@@ -166,7 +164,7 @@ const Home = () => {
       setStates(filteredStates);
     } else {
       console.error("Invalid response format");
-    }
+    }*/
   } catch (error) {
     console.error("Error performing search:", error);
   }
@@ -262,9 +260,11 @@ const Home = () => {
         {/* search bar */}
         <Flex alignItems="center">
           {uiConfig?.isSearch && (
-            <InputGroup flex="1" mr={4}>
+            <InputGroup flex="0.5" mr={4}>
               <Input
                 type="text"
+                borderColor="#C9C9C9"
+                borderRadius={12}
                 placeholder={searchPlaceholder}
                 defaultValue={searchPlaceholder} // Set default value here
                 readOnly
@@ -302,7 +302,7 @@ const Home = () => {
               {t('PRICE_WILL_VARY')}
             </Text> */}
             <SimpleGrid columns={{ sm: 1, md: 1, lg: 1 }} spacing={4} pt={4}>
-              {items?.providers?.map(
+              {items?.map(
                 (item, index) => (
                   <CourseCard
                     key={index}
@@ -314,13 +314,13 @@ const Home = () => {
               )}
             </SimpleGrid>
 
-            {/* {!res?.length && items?.providers?.length === 0 && (
-              <Box background={"#00b0881f"} textAlign={'center'} padding={5} width={'100%'}>{t("NO_data_available")}</Box>
-            )} */}
+           { !items?.length && (
+              <Box background={"#EFEFEF"} textAlign={'center'} padding={5} width={'100%'}>{t("NO_data_available")}</Box>
+            )} 
 
             <Pagination
               currentPage={currentPage}
-              totalPages={Math.ceil(items?.providers?.length / itemsPerPage)}
+              totalPages={Math.ceil(items?.length / itemsPerPage)}
               handlePageChange={handlePageChange}
             />
           </>

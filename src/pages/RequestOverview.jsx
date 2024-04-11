@@ -26,6 +26,8 @@ const RequestOverview = () => {
 
   const location = useLocation();
   const state = location?.state;
+  const[item, setSItem] = useState(state?.item?.message?.catalog?.providers[0]);
+
 
   const handleCloseSuccessModal = () => {
     setShowSuccessModal(false);
@@ -62,8 +64,8 @@ const RequestOverview = () => {
           "version": "1.1.0",
           "bap_id": env?.VITE_BAP_ID,
           "bap_uri": env?.VITE_BAP_URI,
-          "bpp_id": state?.resContext?.bpp_id, //? state?.resContext?.bpp_id : 'flood-case-bpp',
-          "bpp_uri": state?.resContext?.bpp_uri,// ? state?.resContext?.bpp_uri: 'http://35.154.84.36:6004/',
+          "bpp_id": state?.item?.context?.bpp_id, //? state?.resContext?.bpp_id : 'flood-case-bpp',
+          "bpp_uri": state?.item?.context?.bpp_uri,// ? state?.resContext?.bpp_uri: 'http://35.154.84.36:6004/',
           "transaction_id": uuidv4(),
           "message_id": uuidv4(),
           "timestamp": new Date().toISOString()
@@ -72,7 +74,7 @@ const RequestOverview = () => {
           "order": {
             "items": [
               {
-                "id": state?.item?.items[0]?.id,
+                "id": item?.items[0]?.id,
                 "fulfillment_ids": localStorage.getItem('dataShare') ? [JSON.parse(localStorage.getItem('dataShare')).id] : '',
                 "tags": JSON.parse(localStorage.getItem('selectedData')),
               },
@@ -124,9 +126,9 @@ const RequestOverview = () => {
       <SubHeader title={t("REQUEST_OVERVIEW")} cartItemCount={2} />
       <Box maxWidth="1200px" mx="auto" px={4}>
         <Text mt={9}>{t("REQUEST_OVERVIEW")}</Text>
-        {state?.item?.items.map((item, index) => (
+        {/* {item?.items.map((item, index) => ( */}
           <Box
-            key={index}
+            // key={index}
             boxShadow="0px 20px 25px 0px rgba(0, 0, 0, 0.1), 0px 8px 10px 0px rgba(0, 0, 0, 0.1)"
             p={6}
             borderRadius="md"
@@ -136,15 +138,15 @@ const RequestOverview = () => {
             px={4}
           >
             <Heading as="h2" size="md" mb={2} fontSize={15} fontWeight={600}>
-              {state?.item?.items[0]?.descriptor?.name}{" "}
+              {item?.items[0]?.descriptor?.name}{" "}
             </Heading>
             <Flex direction="column">
               <Text fontSize={12} fontWeight={400}>
-                {t("PROVIDED_BY")}: {state?.item?.descriptor?.name}
+                {t("PROVIDED_BY")}: {item?.descriptor?.name}
               </Text>
             </Flex>
           </Box>
-        ))}
+        {/* ))} */}
         <Button
           mt={3}
           type="submit"

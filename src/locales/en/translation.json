@@ -58,12 +58,12 @@
     "GO_BACK_HOME":"Go Back Home",
     "ORDER_HISTORY":"Request History",
     "VIEW_BALANCE":"View Balance",
-    "YEARS_IN_OPERATION":" years in operation",
+    "YEARS_IN_OPERATION":" in operation",
     "REQUEST_OVERVIEW" : "Request Overview",
     "SEND_REQUEST" : "Send Request",
-    "NO_data_available":"No data available for the selected filters.",
+    "NO_data_available":"Sorry, no data available",
     "APP_ID_COM": "dragonfoods.com",
     "AUTHENTICATION_FAILED":"Authentication Failed. Please try Again",
-    "Delay_in_fetching_the_details": "Sorry, there is a delay in process the request, Can you please try again now."
-
+    "Delay_in_fetching_the_details": "Sorry, there is a delay in processing the request, Please try again now.",
+    "ENTER_MANDATORY_OPTION_PROCEED":"Enter the mandatory options to proceed"
 }

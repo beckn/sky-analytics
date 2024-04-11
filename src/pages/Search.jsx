@@ -21,14 +21,13 @@ import SubHeader from "../components/SubHeader"; // Assuming correct path
 import Footer from "../components/Footer"; // Assuming correct path
 import { header, buttonCss } from "../styles/branding";
 import onSearch from "../assets/apiJson/on_search.json";
-import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 const Search = () => {
   const { t } = useTranslation();
   const [searchTxt, setSearchTxt] = useState("");
   const [location, setLocation] = useState("");
   const [year, setYear] = useState("");
-  const [items, setItems] = useState(onSearch);
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('frequentlyData')));
   const navigate = useNavigate();
 
   const cityLocations = [
@@ -65,7 +64,7 @@ const Search = () => {
       <SubHeader cartItemCount={2} back={false} />
       <Box maxW="600px" mx="auto" p="20px">
         <Center mb="20px">
-          <Image src={header?.headerContent?.logoSrc} alt="Logo" />
+          <Image width={'302px'} height={'153px'} src={header?.headerContent?.logoSrc} alt="Logo" />
         </Center>
         <InputGroup mb="20px">
           <Input
@@ -109,7 +108,6 @@ const Search = () => {
           border="none"
           borderColor="transparent"
         >
-          {/* Placeholder option */}
           <option value="" disabled hidden>
             {t("ENTER_LOCATION")}
           </option>
@@ -154,7 +152,9 @@ const Search = () => {
         >
           {t("SEARCH")}
         </Button>
-        {/* <VStack justifyContent="flex-start" alignItems="flex-start">
+
+        { (items != null && items.length ) &&
+         <VStack justifyContent="flex-start" alignItems="flex-start">
           <Text mt={10} mb={2}>
             {t("FREQUESNTLY_BOUGHT")}
           </Text>
@@ -163,7 +163,8 @@ const Search = () => {
             justifyContent="flex-start"
             flexWrap={{ base: "wrap", md: "nowrap" }}
           >
-            {items?.message?.catalog?.providers.map((item, index) => (
+            {items?.map((item, index) => (
+ item?.message?.catalog?.providers.length > 0 && 
               <Card
                 background={"#F6F6F6"}
                 display="flex"
@@ -187,7 +188,7 @@ const Search = () => {
                       mt={5}
                       height="100px"
                       width="130px"
-                      src={item?.descriptor?.images[0].url}
+                      src={item?.message?.catalog?.providers[0]?.descriptor?.images[0]?.url}
                       alt="The house from the offer."
                       objectFit="contain"
                     />
@@ -200,24 +201,24 @@ const Search = () => {
                         fontWeight="bold"
                         mb={2}
                       >
-                        {item?.items[0]?.descriptor?.name}
+                        {item?.message?.catalog?.providers[0]?.items[0]?.descriptor?.name}
                       </Text>
                       <HStack>
                         <Text noOfLines={1} fontSize={12} mb={2}>
                           {" "}
-                          {t("PROVIDED_BY")}: {item?.descriptor?.name}
+                          {t("PROVIDED_BY")}: {item?.message?.catalog?.providers[0]?.descriptor?.name}
                         </Text>
                       </HStack>
                       <HStack>
                         <Text fontSize={12} noOfLines={1} mt={2} mb={2}>
                           {" "}
-                          {item?.tags[0]?.list[1]?.value}{" "}
+                          {item?.message?.catalog?.providers[0]?.tags[0]?.list[1]?.value}{" "}
                           {t("YEARS_IN_OPERATION")}
                         </Text>
                         <HStack display="flex" alignItems="center">
                           <Icon as={FaStar} color="#F4B73F" />
                           <Box fontSize={12} ml={1}>
-                            4.2
+                            {item?.message?.catalog?.providers[0]?.rating}
                           </Box>
                         </HStack>
                       </HStack>
@@ -227,8 +228,8 @@ const Search = () => {
               </Card>
             ))}
           </HStack>
-        </VStack> */}
-
+        </VStack> 
+}
         <Box mt={100}>
           {" "}
           <Footer />{" "}

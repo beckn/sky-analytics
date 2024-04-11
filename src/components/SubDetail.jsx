@@ -7,7 +7,7 @@ import dataList from '../assets/apiJson/checkoutForm.json';
 import { useNavigate } from 'react-router-dom';
 import { header, buttonCss } from "../styles/branding";
 
-const SubDetail = (item, items) => {
+const SubDetail = () => {
     const { t } = useTranslation();
     const location = useLocation();
     const state = location?.state;
@@ -17,6 +17,7 @@ const SubDetail = (item, items) => {
     const [selectedTags, setSelectedTags] = useState([]);
     const [selectedFulfillment, setSelectedFulfillment] = useState([]);
     const [selectedDuration, setSelectedDuration] = useState('one Time');
+    const[item, setSItem] = useState(state?.item?.message?.catalog?.providers[0]);
 
 
     const handleRadioChange = (id, type) => {
@@ -26,10 +27,6 @@ const SubDetail = (item, items) => {
     };
 
     const handleDurationChange = (tagName, option) => {
-        // console.log('sub', event.target.value);
-        // localStorage.setItem('sub', event.target.value)
-        // setSelectedDuration(event.target.value);
-
         const tagIndex = selectedTags.findIndex(tag => tag.descriptor.name === tagName);
         if (tagIndex !== -1) {
             const newTags = [...selectedTags];
@@ -45,7 +42,8 @@ const SubDetail = (item, items) => {
                 list: [{ value: option }]
             }]);
         }
-        console.log(localStorage.setItem('selectedData', JSON.stringify(selectedTags)));
+
+        localStorage.setItem('selectedData', JSON.stringify(selectedTags));
 
     };
 
@@ -72,25 +70,25 @@ const SubDetail = (item, items) => {
             }]);
         }
 
-        console.log(localStorage.setItem('selectedData', JSON.stringify(selectedTags)));
+        localStorage.setItem('selectedData', JSON.stringify(selectedTags));
     };
 
     return (
         <>
             <Card mt={5} p={5} borderRadius="12px" border="1px solid rgba(191, 191, 191, 1)">
                 <Box>
-                    <Text fontSize={12} fontWeight={600}>{t('ABOUT')} {state?.item?.descriptor?.name}</Text>
-                    <Text fontSize={12} mt={1}>{state?.item?.descriptor?.short_desc}</Text>
+                    <Text fontSize={12} fontWeight={600}>{t('ABOUT')} {item?.descriptor?.name}</Text>
+                    <Text fontSize={12} mt={1}>{item?.descriptor?.short_desc}</Text>
                 </Box>
                 <Box mt={5}>
-                    <Text fontSize={12}> {t('LICENSE')} {state?.item?.tags[0]?.list[0]?.value} | {state?.item?.tags[0]?.list[1]?.value} {t('YEARS_IN_OPERATION')} </Text>
+                    <Text fontSize={12}> {t('LICENSE')} {item?.tags[0]?.list[0]?.value} | {item?.tags[0]?.list[1]?.value} {t('YEARS_IN_OPERATION')} </Text>
                 </Box>
             </Card>
 
 
 
             <Card mt={5} p={5} borderRadius="12px" border="1px solid rgba(191, 191, 191, 1)">
-                {state?.item?.items[0]?.tags?.map((tag, index) => (
+                {item?.items[0]?.tags?.map((tag, index) => (
                     (tag.descriptor.name != 'Subscription duration' && tag.descriptor.name != 'Data formats' &&
 
                         <Box key={index} mb={8}>
@@ -112,7 +110,7 @@ const SubDetail = (item, items) => {
 
             <Card mt={5} p={5} borderRadius="12px" border="1px solid rgba(191, 191, 191, 1)">
                 <Flex direction="row" wrap="wrap">
-                    {state?.item?.items[0]?.tags?.map((tag, index) => (
+                    {item?.items[0]?.tags?.map((tag, index) => (
                         (tag.descriptor.name == 'Data formats' &&
 
                             <Box key={index} mb={8}>
@@ -134,7 +132,7 @@ const SubDetail = (item, items) => {
                 <FormLabel fontSize={12} fontWeight={600}>Data sharing modes</FormLabel>
 
                 <Flex direction="row" wrap="wrap">
-                    {state?.item?.fulfillments?.map((fulfillment) => (
+                    {item?.fulfillments?.map((fulfillment) => (
                         <Box key={fulfillment.id} mr={3} mb={3} fontSize={12} ml={5}>
                             <Radio
                                 value={fulfillment.type}
@@ -148,7 +146,7 @@ const SubDetail = (item, items) => {
 
                 </Flex>
                 <Flex direction="row" wrap="wrap">
-                    {state?.item?.items[0]?.tags?.map((tag, index) => (
+                    {item?.items[0]?.tags?.map((tag, index) => (
                         (tag.descriptor.name == 'Subscription duration' &&
 
                             <Box key={index} mb={8}>

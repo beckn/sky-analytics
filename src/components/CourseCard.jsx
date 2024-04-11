@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Flex, Image, Text, Icon, Link } from "@chakra-ui/react";
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 import { useLocation } from 'react-router-dom';
 
-const CourseCard = ({ item, resContext }) => {
+const CourseCard = ({ item }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
+  const[sItem, setSItem] = useState(item?.message?.catalog?.providers[0]);
 
   const goToDetailPage = (item) => {
     navigate("/details", {
-        state: { item: item, resContext: resContext },
+        state: { item: item },
     });
   }
 
   return (
+    (item?.message?.catalog?.providers?.length > 0 && 
     <Box
       onClick={() => goToDetailPage(item)}
       display="flex"
@@ -33,8 +35,8 @@ const CourseCard = ({ item, resContext }) => {
         flex="1"
         maxWidth="100px"
         height="100px"
-        src={item.descriptor.images[0]?.url || "path/to/dummy-image.jpg"}
-        alt={item?.items[0]?.descriptor.name}
+        src={sItem?.descriptor.images[0]?.url || "path/to/dummy-image.jpg"}
+        alt={sItem?.items[0]?.descriptor.name}
         borderRadius="10px"
         marginRight="25px"
         marginLeft="25px"
@@ -50,14 +52,14 @@ const CourseCard = ({ item, resContext }) => {
           textAlign="left"
           marginBottom="10px"
         >
-          {item?.items[0]?.descriptor.name}
+          {sItem?.items[0]?.descriptor.name}
         </Text>
         <Text
           fontSize="12px"
           fontWeight="400"
           lineHeight="18px"
           marginBottom="10px"
-          dangerouslySetInnerHTML={{ __html: item.descriptor.short_desc }}
+          dangerouslySetInnerHTML={{ __html: sItem?.descriptor.short_desc }}
         />
         <Text
           fontSize="12px"
@@ -65,7 +67,7 @@ const CourseCard = ({ item, resContext }) => {
           fontWeight="600"
           lineHeight="18px"
         >
-          {t('PROVIDED_BY')}: {item.descriptor.name}
+          {t('PROVIDED_BY')}: {sItem?.descriptor.name}
         </Text>
         <Flex alignItems="center" justifyContent="space-between" marginBottom="10px">
           <Text
@@ -74,17 +76,18 @@ const CourseCard = ({ item, resContext }) => {
             lineHeight="18px"
             marginRight="10px"
           >
-           {t('LICENSE')}  {item?.tags[0]?.list[0]?.value} | {item?.tags[0]?.list[1]?.value} {t('YEARS_IN_OPERATION')}
+           {t('LICENSE')}  {sItem?.tags[0]?.list[0]?.value} | {sItem?.tags[0]?.list[1]?.value} {t('YEARS_IN_OPERATION')}
           </Text>
           <Flex alignItems="center">
             <Icon as={FaStar} color="yellow.400" />
             <Text fontSize="12px" fontWeight="400" lineHeight="18px" marginLeft="5px">
-              {item.rating || "4.5"}
+              {sItem?.rating || "4.5"}
             </Text>
           </Flex>
         </Flex>
       </Flex>
-    </Box>
+    </Box>)
+    
   );
 };
 

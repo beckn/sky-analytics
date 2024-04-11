@@ -47,10 +47,10 @@ const OrderHistory = () => {
               {item?.descriptor?.name}{" "}
             </Heading>
             <Flex direction="column">
-              <Text fontSize={12} fontWeight={400} mb={2}>
+              <Text fontSize={12} fontWeight={400} mb={3}>
                 {t("PROVIDED_BY")}: {oItem?.provider?.descriptor?.name}
               </Text>
-              <Text fontSize={12} fontWeight={400} mb={2}>
+              <Text fontSize={12} fontWeight={400} mb={3}>
                 {item?.descriptor?.short_desc}
               </Text>
             { oItem?.fulfillments &&   <Text fontSize={12} fontWeight={400}>

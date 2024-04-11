@@ -33,6 +33,7 @@ const Details = () => {
   const [filledStars, setFilledStars] = useState('');
   const [hasHalfStar, setHasHalfStar] = useState('');
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const[item, setSItem] = useState(state?.item?.message?.catalog?.providers[0]);
 
   localStorage.setItem('selectedData', JSON.stringify([]))
 
@@ -42,7 +43,7 @@ const Details = () => {
   useEffect(() => {
     if (state && state.item) {
       // fetchSelectedCourseData();
-      const rating = state?.item?.rating == undefined ? 0 : state?.item?.rating;
+      const rating = item?.rating == undefined ? 0 : item?.rating;
       setFilledStars(Math.floor(rating)); // Number of filled stars
       setHasHalfStar(rating - filledStars >= 0.5); // Check if there is a half star
     }
@@ -60,8 +61,8 @@ const Details = () => {
           "version": "1.1.0",
           "bap_id": env?.VITE_BAP_ID,
           "bap_uri": env?.VITE_BAP_URI,
-          "bpp_id": state?.resContext?.bpp_id,
-          "bpp_uri": state?.resContext?.bpp_uri,
+          "bpp_id": state?.item?.context?.bpp_id,
+          "bpp_uri": state?.item?.context?.bpp_uri,
           "transaction_id": transactionId,
           // "message_id":messageId,
           "message_id": "06974a96-e996-4e22-9265-230f69f22f57",
@@ -70,11 +71,11 @@ const Details = () => {
         "message": {
           "order": {
             "provider": {
-              "id": state?.item?.provider_id,
+              "id": item?.provider_id,
             },
             "items": [
               {
-                "id": state?.item?.item_id,
+                "id": item?.item_id,
               }
             ]
           }
@@ -142,7 +143,7 @@ const Details = () => {
   const Submit =() => {
 
     navigate("/requestoverview", {
-      state: { item: state?.item, resContext: state?.resContext },
+      state: { item: state?.item },
     });
 
    /* setShowSuccessModal(true);
@@ -165,7 +166,7 @@ const Details = () => {
         "order": {
           "items": [
             {
-              "id": state?.item?.items[0]?.id,
+              "id": item?.items[0]?.id,
               "tags": JSON.parse(localStorage.getItem('selectedData')),
             },
           ],
@@ -211,7 +212,7 @@ const Details = () => {
 
   return (
     <>
-      <SubHeader title={state?.item?.descriptor?.name} cartItemCount={2} />
+      <SubHeader title={item?.descriptor?.name} cartItemCount={2} />
 
       {isLoading ? (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
@@ -229,17 +230,17 @@ const Details = () => {
                 border="1px solid rgba(191, 191, 191, 1)" width="150px" height={150}>
                 <Image
                   p={4}
-                  src={state?.item?.descriptor?.images[0].url} width={200}
+                  src={item?.descriptor?.images[0].url} width={200}
                   height={150}
                   objectFit="contain"
                 /></Box>
               <Box m={3}>
-                <Text fontSize={16} noOfLines={1} fontWeight="600" mb={2}>{state?.item?.items[0]?.descriptor?.name}</Text>
+                <Text fontSize={16} noOfLines={1} fontWeight="600" mb={2}>{item?.items[0]?.descriptor?.name}</Text>
                 <HStack mb={2}>
                   <Text fontSize={15} fontWeight={600}>{t('PROVIDED_BY')} </Text>
-                  <Text fontSize={15}>{state?.item?.descriptor?.name} </Text>
+                  <Text fontSize={15}>{item?.descriptor?.name} </Text>
                 </HStack>
-               { state?.item?.rating && <HStack>
+               { item?.rating && <HStack>
 
                   <HStack>
                     {[...Array(filledStars)].map((_, index) => (
@@ -249,14 +250,14 @@ const Details = () => {
                     {[...Array(5 - filledStars - (hasHalfStar ? 1 : 0))].map((_, index) => (
                       <Icon key={index + filledStars + 1} as={BsStarFill} ml={1} color="gray.300" />
                     ))}
-                    <Text mt={1} fontSize={15}>{state?.item?.rating} {t('STARS')}</Text>
+                    <Text mt={1} fontSize={15}>{item?.rating} {t('STARS')}</Text>
                   </HStack>
                 </HStack>}
 
               </Box>
             </HStack>
             <Box >
-              <SubDetail item={state?.item} items={state?.items} />
+              <SubDetail items={item} />
             </Box>
 
             <Card mt={5} p={5} borderRadius="12px" border="1px solid rgba(191, 191, 191, 1)">
@@ -264,7 +265,7 @@ const Details = () => {
                 <Button type="submit" onClick={Submit} width='20rem' variant="solid" background={buttonCss?.primaryBtnColor} color={buttonCss?.primaryTxtColor} _hover={{ bg: buttonCss?.primaryBtnHoverColor }}>
                   {t('PROCEED')}
                 </Button>
-                {/* <Text fontSize={12} ml={4}>{t('PRICE_WILL_VARY')}</Text> */}
+                <Text fontSize={12} ml={4}>{t('PRICE_WILL_VARY')}</Text>
               </HStack>
             </Card>
 
