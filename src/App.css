@@ -22,11 +22,20 @@
 
 
 .checkedRadioButton {
-    background-color: #00B088; /* Set your desired background color */
+    background-color: #2c5d86; /* Set your desired background color */
   }
 
   .css-vtg3j9[data-checked] {
-    background: #00B088 !important;
-    border-color:  #00B088;
+    background: #2c5d86!important;
+    border-color:  #2c5d86;
     color: var(--chakra-colors-white);
+}
+
+.css-1ydjfm6[data-checked]{
+  background: #2c5d86!important; 
+  border-color:  #2c5d86;
+}
+
+.Toastify__toast-container--bottom-center {
+  width: 90% !important;
 }

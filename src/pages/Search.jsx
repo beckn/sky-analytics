@@ -21,13 +21,13 @@ import SubHeader from "../components/SubHeader"; // Assuming correct path
 import Footer from "../components/Footer"; // Assuming correct path
 import { header, buttonCss } from "../styles/branding";
 import onSearch from "../assets/apiJson/on_search.json";
-import { MdOutlineLocationOn } from "react-icons/md";
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 const Search = () => {
   const { t } = useTranslation();
   const [searchTxt, setSearchTxt] = useState("");
   const [location, setLocation] = useState("");
-  const [year, setYear] = useState("1 years");
+  const [year, setYear] = useState("");
   const [items, setItems] = useState(onSearch);
   const navigate = useNavigate();
 
@@ -70,6 +70,7 @@ const Search = () => {
         <InputGroup mb="20px">
           <Input
             type="text"
+            width="544px"
             height="56px"
             autoComplete="searchTxt"
             value={searchTxt}
@@ -77,16 +78,36 @@ const Search = () => {
             onChange={(e) => setSearchTxt(e.target.value)}
             id="searchTxt"
             fontSize={15}
+            boxShadow="0px 10px 24px 0px rgba(0, 0, 0, 0.1)"
+            _focus={{
+              boxShadow: "0px 10px 24px 0px rgba(0, 0, 0, 0.1)",
+            }}
+            border="none"
+            borderColor="transparent"
+            _placeholder={{
+              fontFamily: "Poppins",
+              fontStyle: "italic",
+              fontWeight: 400,
+              fontSize: "15px",
+              lineHeight: "22.5px",
+            }}
           />
         </InputGroup>
         <Select
           mb="20px"
           id="location"
+          width="544px"
           height="56px"
           autoComplete="location"
           value={location}
           placeholder={t("ENTER_LOCATION")}
           onChange={(e) => setLocation(e.target.value)}
+          boxShadow="0px 10px 24px 0px rgba(0, 0, 0, 0.1)"
+          _focus={{
+            boxShadow: "0px 10px 24px 0px rgba(0, 0, 0, 0.1)",
+          }}
+          border="none"
+          borderColor="transparent"
         >
           {/* Placeholder option */}
           <option value="" disabled hidden>
@@ -102,10 +123,17 @@ const Search = () => {
           defaultValue="1"
           mb="20px"
           id="year"
+          width="544px"
           height="56px"
           autoComplete="year"
           value={year}
           onChange={(e) => setYear(e.target.value)}
+          boxShadow="0px 10px 24px 0px rgba(0, 0, 0, 0.1)"
+          _focus={{
+            boxShadow: "0px 10px 24px 0px rgba(0, 0, 0, 0.1)",
+          }}
+          border="none"
+          borderColor="transparent"
         >
           {/* Generate options from 1 to 10 years */}
           {[...Array(10)].map((_, index) => (
@@ -115,7 +143,8 @@ const Search = () => {
           ))}
         </Select>
         <Button
-          width="full"
+          width="544px"
+          height="48px"
           onClick={searchData}
           type="submit"
           variant="solid"
@@ -125,7 +154,7 @@ const Search = () => {
         >
           {t("SEARCH")}
         </Button>
-        <VStack justifyContent="flex-start" alignItems="flex-start">
+        {/* <VStack justifyContent="flex-start" alignItems="flex-start">
           <Text mt={10} mb={2}>
             {t("FREQUESNTLY_BOUGHT")}
           </Text>
@@ -198,7 +227,7 @@ const Search = () => {
               </Card>
             ))}
           </HStack>
-        </VStack>
+        </VStack> */}
 
         <Box mt={100}>
           {" "}

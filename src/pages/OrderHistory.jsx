@@ -6,7 +6,9 @@ import onConfirm from "../assets/apiJson/on_confirm.json";
 
 const OrderHistory = () => {
   const { t } = useTranslation();
-  const [items, setItems] = useState(onConfirm.message.order);
+  // const [items, setItems] = useState(onConfirm.message.order);
+  const data = localStorage.getItem('requestHistory')? JSON.parse(localStorage.getItem('requestHistory')) : onConfirm.message.order;
+  const [oItem, setItem] = useState(data);
 
   const formatDate = (dateStr) => {
     const date = new Date(dateStr);
@@ -30,7 +32,7 @@ const OrderHistory = () => {
     <Box>
       <SubHeader title={t("ORDER_HISTORY")} cartItemCount={2} />
       <Box maxWidth="1200px" mx="auto" px={4}>
-        {items.items.map((item, index) => (
+        {oItem?.items.map((item, index) => (
           <Box
             key={index}
             boxShadow="0px 20px 25px 0px rgba(0, 0, 0, 0.1), 0px 8px 10px 0px rgba(0, 0, 0, 0.1)"
@@ -42,18 +44,18 @@ const OrderHistory = () => {
             px={4}
           >
             <Heading as="h2" size="md" mb={3} fontSize={15} fontWeight={600}>
-              {item.descriptor.name}{" "}
+              {item?.descriptor?.name}{" "}
             </Heading>
             <Flex direction="column">
               <Text fontSize={12} fontWeight={400} mb={2}>
-                {t("PROVIDED_BY")}: {items.provider.descriptor.name}
+                {t("PROVIDED_BY")}: {oItem?.provider?.descriptor?.name}
               </Text>
               <Text fontSize={12} fontWeight={400} mb={2}>
-                {item.descriptor.short_desc}
+                {item?.descriptor?.short_desc}
               </Text>
-              <Text fontSize={12} fontWeight={400}>
-                {t("Placed at")} {formatDate(items.fulfillments[0].state.updated_at)}
-              </Text>
+            { oItem?.fulfillments &&   <Text fontSize={12} fontWeight={400}>
+                {t("Placed at")} {formatDate(oItem?.fulfillments[0]?.state?.updated_at)}
+              </Text>}
             </Flex>
           </Box>
         ))}

@@ -5,14 +5,14 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 import { useLocation } from 'react-router-dom';
 
-const CourseCard = ({ item }) => {
+const CourseCard = ({ item, resContext }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
 
   const goToDetailPage = (item) => {
     navigate("/details", {
-        state: { item: item },
+        state: { item: item, resContext: resContext },
     });
   }
 
@@ -21,12 +21,14 @@ const CourseCard = ({ item }) => {
       onClick={() => goToDetailPage(item)}
       display="flex"
       alignItems="center"
-      padding="20px"
+      
       borderRadius="10px"
       boxShadow="0px 20px 25px 0px rgba(0, 0, 0, 0.1), 0px 8px 10px 0px rgba(0, 0, 0, 0.1)"
-      backgroundColor="#ffffff"
+     // backgroundColor="#ffffff"
       marginBottom="20px"
+      backgroundColor={'#F6F6F6'}
     >
+      <Box >
       <Image
         flex="1"
         maxWidth="100px"
@@ -34,10 +36,13 @@ const CourseCard = ({ item }) => {
         src={item.descriptor.images[0]?.url || "path/to/dummy-image.jpg"}
         alt={item?.items[0]?.descriptor.name}
         borderRadius="10px"
-        marginRight="20px"
+        marginRight="25px"
+        marginLeft="25px"
         objectFit="contain" 
+        // padding="20px"
       />
-      <Flex flex="2" flexDirection="column">
+      </Box>
+      <Flex flex="2" flexDirection="column" padding="20px" backgroundColor="#ffffff" >
         <Text
           fontSize="15px"
           fontWeight="600"

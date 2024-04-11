@@ -51,14 +51,19 @@
     "PAYPAL":"PayPal",
     "SELECT_PAYMENT_METHOD":"Select Payment Method",
     "PLEASE_WAIT":"Please wait!",
-    "WE_PROCESS_YOUR_PAYMENT":"While we process your payment",
+    "WE_PROCESS_YOUR_PAYMENT":"While we process your request",
 
-    "ORDER_CONFIRMED":"Order confirmed!",
-    "SENT_YOUR_DATA_REPORT":"The dataset has been sent to the requested destination email ID:",
+    "ORDER_CONFIRMED":"Request confirmed!",
+    "SENT_YOUR_DATA_REPORT":"The dataset will be shared via the chosen mode",
     "GO_BACK_HOME":"Go Back Home",
-    "ORDER_HISTORY":"Order History",
+    "ORDER_HISTORY":"Request History",
     "VIEW_BALANCE":"View Balance",
     "YEARS_IN_OPERATION":" years in operation",
     "REQUEST_OVERVIEW" : "Request Overview",
-    "SEND_REQUEST" : "Send Request"
+    "SEND_REQUEST" : "Send Request",
+    "NO_data_available":"No data available for the selected filters.",
+    "APP_ID_COM": "dragonfoods.com",
+    "AUTHENTICATION_FAILED":"Authentication Failed. Please try Again",
+    "Delay_in_fetching_the_details": "Sorry, there is a delay in process the request, Can you please try again now."
+
 }

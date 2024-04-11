@@ -27,12 +27,13 @@ import onSearch from "../assets/apiJson/on_search.json";
 import SubHeader from "../components/SubHeader";
 import Footer from '../components/Footer';
 import { useLocation } from 'react-router-dom';
+import Loader from '../components/Loader';
 
 const Home = () => {
   const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(1);
   const [story, setStory] = useState([]);
-  const [isLoading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [inputValue, setInputValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [transactionId, setTransactionId] = useState(uuidv4());
@@ -40,6 +41,9 @@ const Home = () => {
   const [selectedFilter, setSelectedFilter] = useState("");
   const [searchPlaceholder, setSearchPlaceholder] = useState("Search...");
   const [items, setItems] = useState({});
+  const [resContext, setResContext] = useState({});
+  const [res, setRes] = useState([]);
+
   const location = useLocation();
   const state = location?.state;
 
@@ -49,17 +53,9 @@ const Home = () => {
   }, []);
 
   const searchResponse = async () => {
-    let filterData = {"stops": []};
 
-    if (state?.location) {
-      filterData['stops'] = {
-        "location": {
-          "city": {
-            "name": state?.location
-          }
-        }
-      }
-    }
+    try{
+    
 
     console.log({ env });
     let bodyData = {
@@ -77,18 +73,52 @@ const Home = () => {
       },
       message: {
         intent: {
-          item: {
-            descriptor: {
-              name: "flood prediction",
-            },
-          },
-        },
       },
-    };
+    }};
 
-    bodyData.message.intent['fulfillment'] = filterData;
+    if(state?.searchTxt)
+    {
+      bodyData['message']['intent']['item']= {
+        "descriptor": {
+            "name": state?.searchTxt
+        }
+    }
+  }
+
+    if(state?.location)
+    {
+      bodyData['message']['intent']['fulfillment'] =  {
+        "stops": [
+            {
+                "location": {
+                    "city": {
+                      "name": state?.location
+                    }
+                }
+            }
+        ]
+    }
+    }
+
+    if(state?.year)
+    {
+      bodyData['message']['intent']['tags'] =  [
+        {
+            "descriptor": {
+                "name": "operation"
+            },
+            "value": state?.year
+        }
+    ]
+    }
+
     let response = await getallContent(bodyData);
-    setItems(response);
+    setLoading(false);
+
+    setItems(response?.responses[0]?.message?.catalog);
+    setResContext(response?.responses[0]?.context);
+    setRes(response?.responses);
+
     console.log(response);
 
     if (
@@ -137,6 +167,9 @@ const Home = () => {
     } else {
       console.error("Invalid response format");
     }
+  } catch (error) {
+    console.error("Error performing search:", error);
+  }
   };
 
   //Filter functionality
@@ -216,13 +249,15 @@ const Home = () => {
     if (selectedFilter && selectedFilter !== "All") {
       setSearchPlaceholder(`You are Searching in ${selectedFilter}`);
     } else {
-      setSearchPlaceholder('Flood prediction data in Sylhet');
+      setSearchPlaceholder(state?.searchTxt);
     }
   }, [selectedFilter]);
 
   return (
     <>
       <SubHeader title={t("SEARCH_RESULT")} cartItemCount={2} />
+      {loading ? (<Loader />
+      ) : (
       <Box p={4} marginBottom="60px" marginX={{ base: 4, md: 8, lg: 16 }}>
         {/* search bar */}
         <Flex alignItems="center">
@@ -231,8 +266,10 @@ const Home = () => {
               <Input
                 type="text"
                 placeholder={searchPlaceholder}
+                defaultValue={searchPlaceholder} // Set default value here
+                readOnly
                 value={inputValue}
-              // onChange={handleChange}
+               onChange={handleChange}
               />
               <InputRightElement onClick={handleClear} cursor="pointer">
                 {inputValue ? (
@@ -265,27 +302,33 @@ const Home = () => {
               {t('PRICE_WILL_VARY')}
             </Text> */}
             <SimpleGrid columns={{ sm: 1, md: 1, lg: 1 }} spacing={4} pt={4}>
-              {items?.message?.catalog?.providers.map(
+              {items?.providers?.map(
                 (item, index) => (
                   <CourseCard
                     key={index}
                     item={item}
+                    resContext={resContext}
                     transactionId={transactionId}
                   />
                 )
               )}
             </SimpleGrid>
 
+            {/* {!res?.length && items?.providers?.length === 0 && (
+              <Box background={"#00b0881f"} textAlign={'center'} padding={5} width={'100%'}>{t("NO_data_available")}</Box>
+            )} */}
+
             <Pagination
               currentPage={currentPage}
-              totalPages={Math.ceil(items?.message?.catalog?.providers.length / itemsPerPage)}
+              totalPages={Math.ceil(items?.providers?.length / itemsPerPage)}
               handlePageChange={handlePageChange}
             />
           </>
         )}
-      </Box>
-      <Box mt={100}> <Footer /> </Box>
+      </Box>)}
 
+      <Box mt={100}> <Footer /> </Box>
+      
     </>
   );
 };

@@ -1,7 +1,7 @@
 // import headerImage from "../assets/headerLogo.svg";
 import translateImage from "../assets/translate.png";
 import appIcon from '../assets/images/logo.png'
-import headerLogo from '../assets/images/header_logo.png'
+import headerLogo from '../assets/images/headerLogo.png'
 
 const colors = {
   brand: {
@@ -35,9 +35,9 @@ export const header = {
     title1: "Sky Analytics",
     title2: "Platform for Climate Resilient Data Highways",
     logoSrc: appIcon,
+    headerLogo: headerLogo,
     appTitleColor: "rgba(44, 93, 134, 1)",
-    headerBgColor: "#EFEFEF",
-    headerLogo : headerLogo,
+    headerBgColor: "#EFEFEF"
   },
   languageDropdown: {
     translateImg: translateImage,
@@ -113,5 +113,4 @@ export const buttonCss = {
   primaryBtnColor: 'rgba(44, 93, 134, 1)',
   primaryBtnHoverColor: 'rgb(40 85 123)',
   primaryTxtColor: '#FFF'
-  
 }

@@ -2,7 +2,7 @@ import { Box, Button, Icon, Card, Input, Text, Image, VStack, Flex, HStack } fro
 import { IoChevronBack } from 'react-icons/io5';
 
 import React, { useEffect, useState } from 'react';
-import { getseletedData } from '../services/Apicall';
+import { getseletedData, getconfirmdata } from '../services/Apicall';
 import { v4 as uuidv4 } from 'uuid';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -22,13 +22,10 @@ import ModalPleaseWait from '../components/ModalPleaseWait';
 
 const Details = () => {
 
-  const uniqueId = uuidv4();
   const location = useLocation();
   const state = location?.state;
   const navigate = useNavigate();
   const { t } = useTranslation();
-
-
   const [story, setStory] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -37,6 +34,7 @@ const Details = () => {
   const [hasHalfStar, setHasHalfStar] = useState('');
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
+  localStorage.setItem('selectedData', JSON.stringify([]))
 
   const messageId = uuidv4();
   const { itemId } = useParams();
@@ -44,7 +42,7 @@ const Details = () => {
   useEffect(() => {
     if (state && state.item) {
       // fetchSelectedCourseData();
-      const rating = state?.item?.rating;
+      const rating = state?.item?.rating == undefined ? 0 : state?.item?.rating;
       setFilledStars(Math.floor(rating)); // Number of filled stars
       setHasHalfStar(rating - filledStars >= 0.5); // Check if there is a half star
     }
@@ -62,8 +60,8 @@ const Details = () => {
           "version": "1.1.0",
           "bap_id": env?.VITE_BAP_ID,
           "bap_uri": env?.VITE_BAP_URI,
-          "bpp_id": state?.item?.bpp_id,
-          "bpp_uri": state?.item?.bpp_uri,
+          "bpp_id": state?.resContext?.bpp_id,
+          "bpp_uri": state?.resContext?.bpp_uri,
           "transaction_id": transactionId,
           // "message_id":messageId,
           "message_id": "06974a96-e996-4e22-9265-230f69f22f57",
@@ -141,19 +139,73 @@ const Details = () => {
   };
 
 
-  const Submit = async () => {
+  const Submit =() => {
 
-    // navigate("/checkout", {
-    //   state: { item: state?.item },
-    // });
+    navigate("/requestoverview", {
+      state: { item: state?.item, resContext: state?.resContext },
+    });
 
-    setShowSuccessModal(true);
+   /* setShowSuccessModal(true);
 
-    setTimeout(() => {
+    let bodyData = {
+
+      "context": {
+        "domain": env?.VITE_DOMAIN,
+        "action": "confirm",
+        "version": "1.1.0",
+        "bap_id": env?.VITE_BAP_ID,
+        "bap_uri": env?.VITE_BAP_URI,
+        "bpp_id": state?.resContext?.bpp_id ? state?.resContext?.bpp_id : 'flood-case-bpp',
+        "bpp_uri": state?.resContext?.bpp_uri ? state?.resContext?.bpp_uri: 'http://35.154.84.36:6004/',
+        "transaction_id": transactionId,
+        "message_id": uuidv4(),
+        "timestamp": new Date().toISOString()
+      },
+      "message": {
+        "order": {
+          "items": [
+            {
+              "id": state?.item?.items[0]?.id,
+              "tags": JSON.parse(localStorage.getItem('selectedData')),
+            },
+          ],
+          "fulfillments": [
+            {
+              "customer": {
+                "person": {
+                  "name": "John Doe",
+                  "age": "25"
+                },
+                "contact": {
+                  "phone": "8789111111",
+                  "email": "john@gmail.com"
+                }
+              }
+            }
+          ]
+        }
+
+      }
+    }
+
+
+
+    let response = await getconfirmdata(bodyData);
+
+    if (response && response.responses && response.responses.length > 0) {
       setShowSuccessModal(false);
-       navigate('/success');
-      
-    }, 5000);
+      navigate('/success', {
+          state: { item: response?.responses[0].message },
+         });
+
+    }
+*/
+
+    // setTimeout(() => {
+    //   setShowSuccessModal(false);
+    //   navigate('/success');
+
+    // }, 5000);
 
   }
 
@@ -170,7 +222,7 @@ const Details = () => {
       ) : (
         <>
 
-          <Card mx={'100px'} mt={30} p={5}>
+          <Card mx={'100px'} mt={30} p={5} boxShadow="0px 8px 10px 0px #0000001A">
             <HStack>
               <Box background="rgba(255, 255, 255, 1)" alignItems="stretch"
                 justifyContent="center" borderRadius="12px"
@@ -179,7 +231,7 @@ const Details = () => {
                   p={4}
                   src={state?.item?.descriptor?.images[0].url} width={200}
                   height={150}
-                  objectFit="contain" 
+                  objectFit="contain"
                 /></Box>
               <Box m={3}>
                 <Text fontSize={16} noOfLines={1} fontWeight="600" mb={2}>{state?.item?.items[0]?.descriptor?.name}</Text>
@@ -187,9 +239,8 @@ const Details = () => {
                   <Text fontSize={15} fontWeight={600}>{t('PROVIDED_BY')} </Text>
                   <Text fontSize={15}>{state?.item?.descriptor?.name} </Text>
                 </HStack>
-                <HStack>
-                  {/* <Icon as={FaStar} color="#F4B73F" />
-                  <Box fontSize={12} ml={1}>4.2</Box> */}
+               { state?.item?.rating && <HStack>
+
                   <HStack>
                     {[...Array(filledStars)].map((_, index) => (
                       <Icon key={index} as={BsStarFill} ml={1} color="yellow.400" />
@@ -200,7 +251,7 @@ const Details = () => {
                     ))}
                     <Text mt={1} fontSize={15}>{state?.item?.rating} {t('STARS')}</Text>
                   </HStack>
-                </HStack>
+                </HStack>}
 
               </Box>
             </HStack>
@@ -213,7 +264,7 @@ const Details = () => {
                 <Button type="submit" onClick={Submit} width='20rem' variant="solid" background={buttonCss?.primaryBtnColor} color={buttonCss?.primaryTxtColor} _hover={{ bg: buttonCss?.primaryBtnHoverColor }}>
                   {t('PROCEED')}
                 </Button>
-                <Text fontSize={12} ml={4}>{t('PRICE_WILL_VARY')}</Text>
+                {/* <Text fontSize={12} ml={4}>{t('PRICE_WILL_VARY')}</Text> */}
               </HStack>
             </Card>
 
@@ -222,12 +273,6 @@ const Details = () => {
         </>
       )}
 
-{showSuccessModal && (
-        <ModalPleaseWait
-          message="Your success message goes here!"
-          onClose={handleCloseSuccessModal}
-        />
-      )}
       <Box mt={100}> <Footer /> </Box>
 
     </>

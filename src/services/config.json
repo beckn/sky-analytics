@@ -1,7 +1,7 @@
 {
     "siteName": "Dragon Foods",
     "siteByLine": "Listen, Learn & Grow !!!",
-    "apiEndPoint": "/cache/search",
+    "apiEndPoint": "/search",
     
     "pagination": "10",
     "orderBy": "2023-10-20T07:46:27.732028+00:00",
