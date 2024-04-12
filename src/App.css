@@ -39,3 +39,7 @@
 .Toastify__toast-container--bottom-center {
   width: 90% !important;
 }
+
+.Toastify__progress-bar--error {
+  background: #FECDD2 !important;
+}

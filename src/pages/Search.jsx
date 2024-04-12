@@ -197,7 +197,7 @@ const Search = () => {
                     <Box p={2}>
                       <Text
                         fontSize={15}
-                        noOfLines={1}
+                        noOfLines={2}
                         fontWeight="bold"
                         mb={2}
                       >

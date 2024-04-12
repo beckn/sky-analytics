@@ -50,7 +50,7 @@ const OrderHistory = () => {
               <Text fontSize={12} fontWeight={400} mb={3}>
                 {t("PROVIDED_BY")}: {oItem?.provider?.descriptor?.name}
               </Text>
-              <Text fontSize={12} fontWeight={400} mb={3}>
+              <Text fontSize={12} fontWeight={400} mb={3} noOfLines={2}>
                 {item?.descriptor?.short_desc}
               </Text>
             { oItem?.fulfillments &&   <Text fontSize={12} fontWeight={400}>

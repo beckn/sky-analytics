@@ -59,6 +59,7 @@ const CourseCard = ({ item }) => {
           fontWeight="400"
           lineHeight="18px"
           marginBottom="10px"
+          noOfLines={2}
           dangerouslySetInnerHTML={{ __html: sItem?.descriptor.short_desc }}
         />
         <Text
