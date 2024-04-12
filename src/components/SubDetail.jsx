@@ -17,7 +17,7 @@ const SubDetail = () => {
     const [selectedTags, setSelectedTags] = useState([]);
     const [selectedFulfillment, setSelectedFulfillment] = useState([]);
     const [selectedDuration, setSelectedDuration] = useState('one Time');
-    const[item, setSItem] = useState(state?.item?.message?.catalog?.providers[0]);
+    const [item, setSItem] = useState(state?.item?.message?.catalog?.providers[0]);
 
 
     const handleRadioChange = (id, type) => {
@@ -31,9 +31,11 @@ const SubDetail = () => {
         if (tagIndex !== -1) {
             const newTags = [...selectedTags];
             const optionIndex = newTags[tagIndex].list.findIndex(item => item.value === option);
-                           newTags[tagIndex].list[0]= { value: option };
+            newTags[tagIndex].list[0] = { value: option };
 
             setSelectedTags(newTags);
+            localStorage.setItem('selectedData', JSON.stringify(newTags)); // Update local storage after updating state
+
         } else {
             setSelectedTags([...selectedTags, {
                 descriptor: {
@@ -43,7 +45,7 @@ const SubDetail = () => {
             }]);
         }
 
-        localStorage.setItem('selectedData', JSON.stringify(selectedTags));
+        localStorage.setItem('selectedData', JSON.stringify([...selectedTags, { descriptor: { name: tagName }, list: [{ value: option }] }]));
 
     };
 
@@ -59,8 +61,12 @@ const SubDetail = () => {
                 }
             } else {
                 newTags[tagIndex].list.push({ value: option });
+
             }
             setSelectedTags(newTags);
+            localStorage.setItem('selectedData', JSON.stringify(newTags)); // Update local storage after updating state
+
+
         } else {
             setSelectedTags([...selectedTags, {
                 descriptor: {
@@ -68,9 +74,10 @@ const SubDetail = () => {
                 },
                 list: [{ value: option }]
             }]);
+
+            localStorage.setItem('selectedData', JSON.stringify([...selectedTags, { descriptor: { name: tagName }, list: [{ value: option }] }]));
         }
 
-        localStorage.setItem('selectedData', JSON.stringify(selectedTags));
     };
 
     return (
@@ -89,7 +96,7 @@ const SubDetail = () => {
 
             <Card mt={5} p={5} borderRadius="12px" border="1px solid rgba(191, 191, 191, 1)">
                 {item?.items[0]?.tags?.map((tag, index) => (
-                    (tag.descriptor.name != 'Subscription duration' && tag.descriptor.name != 'Data formats' &&
+                    (tag?.list?.length > 0 && tag.descriptor.name != 'Subscription duration' && tag.descriptor.name != 'Data formats' &&
 
                         <Box key={index} mb={8}>
                             <FormLabel fontSize={12} fontWeight={600}>{tag.descriptor.name}</FormLabel>
@@ -114,7 +121,8 @@ const SubDetail = () => {
                         (tag.descriptor.name == 'Data formats' &&
 
                             <Box key={index} mb={8}>
-                                <FormLabel fontSize={12} fontWeight={600}>{tag.descriptor.name}</FormLabel>
+                                <FormLabel fontSize={12} fontWeight={600} display="flex">{tag.descriptor.name} <Box color="red" ml={1}>
+                                    * </Box></FormLabel>
                                 {tag.list.map((item, i) => (
                                     <Checkbox fontSize={12} ml={5}
                                         key={i}
@@ -129,7 +137,8 @@ const SubDetail = () => {
                         ))
                     )}
                 </Flex>
-                <FormLabel fontSize={12} fontWeight={600}>Data sharing modes</FormLabel>
+                <FormLabel fontSize={12} fontWeight={600} display="flex">Data sharing modes <Box color="red" ml={1}>
+                                    * </Box></FormLabel>
 
                 <Flex direction="row" wrap="wrap">
                     {item?.fulfillments?.map((fulfillment) => (
@@ -150,14 +159,15 @@ const SubDetail = () => {
                         (tag.descriptor.name == 'Subscription duration' &&
 
                             <Box key={index} mb={8}>
-                                <FormLabel fontSize={12} fontWeight={600}>{tag.descriptor.name} </FormLabel>
+                                <FormLabel fontSize={12} fontWeight={600} display="flex">{tag.descriptor.name}  <Box color="red" ml={1}>
+                                    * </Box></FormLabel>
                                 {tag.list.map((item, i) => (
                                     <Radio ml={5}
                                         key={i}
                                         value={item.value}
                                         // isChecked={selectedDuration === item.value}
-                                        onChange={()=>{handleDurationChange(tag.descriptor.name, item.value)}}
-                                    isChecked={selectedTags.some(selectedTag => selectedTag.descriptor.name === tag.descriptor.name && selectedTag.list.some(selectedItem => selectedItem.value === item.value))}
+                                        onChange={() => { handleDurationChange(tag.descriptor.name, item.value) }}
+                                        isChecked={selectedTags.some(selectedTag => selectedTag.descriptor.name === tag.descriptor.name && selectedTag.list.some(selectedItem => selectedItem.value === item.value))}
                                     >
                                         <Text fontSize={12} mt={1} > {item.value}</Text>
                                     </Radio>

@@ -111,6 +111,7 @@ const RequestOverview = () => {
         });
 
       } else {
+        toast.dismiss();
         errorMessage(t("Delay_in_fetching_the_details"));
         setShowSuccessModal(false);
       }

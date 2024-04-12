@@ -18,7 +18,8 @@ import { header, buttonCss } from "../styles/branding";
 import SubHeader from '../components/SubHeader';
 import Footer from '../components/Footer';
 import ModalPleaseWait from '../components/ModalPleaseWait';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Details = () => {
 
@@ -36,6 +37,8 @@ const Details = () => {
   const[item, setSItem] = useState(state?.item?.message?.catalog?.providers[0]);
 
   localStorage.setItem('selectedData', JSON.stringify([]))
+  localStorage.setItem('dataShare', JSON.stringify({}))
+
 
   const messageId = uuidv4();
   const { itemId } = useParams();
@@ -142,9 +145,49 @@ const Details = () => {
 
   const Submit =() => {
 
+    let selectedData = JSON.parse(localStorage.getItem('selectedData'));
+
+    const dataFormats = selectedData.find(item => item.descriptor.name === "Data formats");
+const isDataFormatsSet = dataFormats !== undefined && dataFormats.list.length > 0;
+
+// Check if "Subscription duration" value is set
+const subscriptionDuration = selectedData.find(item => item.descriptor.name === "Subscription duration");
+const isSubscriptionDurationSet = subscriptionDuration !== undefined && subscriptionDuration.list.length > 0;
+
+console.log("Is Data formats set:", isDataFormatsSet);
+console.log("Is Subscription duration set:", isSubscriptionDurationSet);
+
+const dataShare = localStorage.getItem('dataShare');
+const isDataShareSet = dataShare != "{}";
+
+console.log("Is dataShare key set:", isDataShareSet);
+
+    if(isDataFormatsSet && isSubscriptionDurationSet && isDataShareSet)
+    {
     navigate("/requestoverview", {
       state: { item: state?.item },
     });
+  }else{
+    toast.dismiss();
+    errorMessage(t("ENTER_MANDATORY_OPTION_PROCEED"));
+  }
+
+  function errorMessage(message) {
+    toast.error(message, {
+      position: 'bottom-center',
+      autoClose: 2000,
+      hideProgressBar: false,
+      // theme: "colored",
+      pauseOnHover: true,
+      toastClassName: 'full-width-toast',
+      style: {
+        border:"1px solid #bfbfbf38",
+        color: '#c63535b8',
+        margin: '0 21px',
+        width: "96%", // Set width to 100% to make the toast full-width
+      }
+    });
+  }
 
    /* setShowSuccessModal(true);
 
