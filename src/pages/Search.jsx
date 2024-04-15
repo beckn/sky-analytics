@@ -117,7 +117,7 @@ const Search = () => {
             </option>
           ))}
         </Select>
-        <Select
+        {/* <Select
           defaultValue="1"
           mb="20px"
           id="year"
@@ -133,13 +133,12 @@ const Search = () => {
           border="none"
           borderColor="transparent"
         >
-          {/* Generate options from 1 to 10 years */}
           {[...Array(10)].map((_, index) => (
             <option key={index + 1} value={index + 1}>
               {index + 1} year{index !== 0 && "s"}
             </option>
           ))}
-        </Select>
+        </Select> */}
         <Button
           width="544px"
           height="48px"
