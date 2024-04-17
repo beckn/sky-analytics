@@ -163,7 +163,7 @@ const Search = () => {
             flexWrap={{ base: "wrap", md: "nowrap" }}
           >
             {items?.map((item, index) => (
- item?.message?.catalog?.providers.length > 0 && 
+ (item?.message?.catalog?.providers.length > 0  && index < 3)&& 
               <Card
                 background={"#F6F6F6"}
                 display="flex"
