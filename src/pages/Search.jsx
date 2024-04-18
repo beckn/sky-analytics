@@ -142,6 +142,8 @@ const Search = () => {
         <Button
           width="544px"
           height="48px"
+          fontWeight={400}
+          borderRadius={"12px"}
           onClick={searchData}
           type="submit"
           variant="solid"
@@ -154,7 +156,7 @@ const Search = () => {
 
         { (items != null && items.length ) &&
          <VStack justifyContent="flex-start" alignItems="flex-start">
-          <Text mt={10} mb={2}>
+          <Text mt={10} mb={2} fontSize={"17px"}>
             {t("FREQUESNTLY_ACCESSED")}
           </Text>
 
@@ -177,9 +179,10 @@ const Search = () => {
                 minHeight="270px"
                 _hover={{ borderColor: "blue.400" }}
                 cursor="pointer"
-                boxShadow="7px 12px 0px rgba(0, 0, 0, 0.1)"
+                boxShadow="rgba(0, 0, 0, 0.1) 7px 14px 17px -6px"
                 mb={6}
                 onClick={() => goTodetailPage(item)}
+                gap={"11px"}
               >
                 <VStack flex={1}>
                   <Box height="132px">
@@ -197,7 +200,7 @@ const Search = () => {
                       <Text
                         fontSize={15}
                         noOfLines={2}
-                        fontWeight="bold"
+                        fontWeight="600"
                         mb={2}
                       >
                         {item?.message?.catalog?.providers[0]?.items[0]?.descriptor?.name}

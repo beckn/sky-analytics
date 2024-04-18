@@ -20,7 +20,7 @@ const SubHeader = ({ title, cartItemCount, back = true }) => {
     };
 
     return (
-        <Box boxShadow="md" zIndex="sticky" width="100%">
+        <Box boxShadow="md" zIndex="sticky" width="100%" px={6}>
             <Flex align="center" justify="space-between">
                 {/* Back button */}
                 {back && (
@@ -44,7 +44,7 @@ const SubHeader = ({ title, cartItemCount, back = true }) => {
                     cursor="pointer"  
                 >
                     <Icon as={FiShoppingCart} boxSize="20px" />
-                    {(
+                    {/* {(
                         <Badge
                             position="absolute"
                             borderRadius="full"
@@ -57,7 +57,7 @@ const SubHeader = ({ title, cartItemCount, back = true }) => {
                         >
                             {'1'}
                         </Badge>
-                    )}
+                    )} */}
                 </Box>
             </Flex>
         </Box>

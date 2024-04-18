@@ -31,7 +31,7 @@ const OrderHistory = () => {
   return (
     <Box>
       <SubHeader title={t("ORDER_HISTORY")} cartItemCount={2} />
-      <Box maxWidth="1200px" mx="auto" px={4}>
+      <Box maxWidth="1200px" mx="auto" px={4} mt={'60px'}>
         {oItem?.items.map((item, index) => (
           <Box
             key={index}
@@ -43,14 +43,14 @@ const OrderHistory = () => {
             my={4}
             px={4}
           >
-            <Heading as="h2" size="md" mb={3} fontSize={15} fontWeight={600}>
+            <Heading as="h2" size="md" mb={'10px'} fontSize={15} fontWeight={600}>
               {item?.descriptor?.name}{" "}
             </Heading>
             <Flex direction="column">
-              <Text fontSize={12} fontWeight={400} mb={3}>
+              <Text fontSize={12} fontWeight={400} mb={'10px'}>
                 {t("PROVIDED_BY")}: {oItem?.provider?.descriptor?.name}
               </Text>
-              <Text fontSize={12} fontWeight={400} mb={3} noOfLines={2}>
+              <Text fontSize={12} fontWeight={400} mb={'10px'} noOfLines={2}>
                 {item?.descriptor?.short_desc}
               </Text>
             { oItem?.fulfillments &&   <Text fontSize={12} fontWeight={400}>

@@ -125,18 +125,19 @@ const RequestOverview = () => {
   return (
     <Box>
       <SubHeader title={t("REQUEST_OVERVIEW")} cartItemCount={2} />
-      <Box maxWidth="1200px" mx="auto" px={4}>
+      <Box maxWidth="1200px" mx="auto" px={4} >
         <Text mt={9}>{t("REQUEST_OVERVIEW")}</Text>
         {/* {item?.items.map((item, index) => ( */}
           <Box
             // key={index}
             boxShadow="0px 20px 25px 0px rgba(0, 0, 0, 0.1), 0px 8px 10px 0px rgba(0, 0, 0, 0.1)"
-            p={6}
-            borderRadius="md"
+            p="15px 20px"
+            borderRadius="10px"
             bg="white"
             width="100%"
             my={4}
             px={4}
+            mb={25}
           >
             <Heading as="h2" size="md" mb={2} fontSize={15} fontWeight={600}>
               {item?.items[0]?.descriptor?.name}{" "}
@@ -152,6 +153,8 @@ const RequestOverview = () => {
           mt={3}
           type="submit"
           onClick={Submit}
+          fontWeight={400} 
+          borderRadius={'12px'}
           width="20rem"
           variant="solid"
           background={buttonCss?.primaryBtnColor}

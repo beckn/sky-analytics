@@ -74,7 +74,7 @@ const SuccessPayment = (item, items) => {
           <Text fontSize={16} color="#353945" fontWeight={400}>{displayValue}</Text>
         </HStack>
 
-        <Button mt={5} type="submit" fontSize={15} onClick={goToHome} width='20rem' variant="solid" background={buttonCss?.primaryBtnColor} color={buttonCss?.primaryTxtColor} _hover={{ bg: buttonCss?.primaryBtnHoverColor }}>
+        <Button mt={5} type="submit" fontWeight={400} borderRadius={'12px'} onClick={goToHome} width='20rem' variant="solid" background={buttonCss?.primaryBtnColor} color={buttonCss?.primaryTxtColor} _hover={{ bg: buttonCss?.primaryBtnHoverColor }}>
           {t('GO_BACK_HOME')}
         </Button>
       </VStack>

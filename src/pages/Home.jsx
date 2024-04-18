@@ -256,9 +256,9 @@ const Home = () => {
       <SubHeader title={t("SEARCH_RESULT")} cartItemCount={2} />
       {loading ? (<Loader />
       ) : (
-      <Box p={4} marginBottom="60px" marginX={{ base: 4, md: 8, lg: 16 }}>
+      <Box p={4} marginBottom="60px" marginTop="30px" marginX={{ base: 4, md: 8, lg: 16 }}>
         {/* search bar */}
-        <Flex alignItems="center">
+        <HStack alignItems="center" marginBottom={'30px'} width={'355px'}>
           {uiConfig?.isSearch && (
             <InputGroup flex="0.5" mr={4}>
               <Input
@@ -289,7 +289,7 @@ const Home = () => {
               fontSize="24px"
             />
           )}
-        </Flex>
+        </HStack>
 
         {inputValue.length > 0 ? (
           <SearchScreen
