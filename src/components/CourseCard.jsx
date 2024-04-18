@@ -23,9 +23,8 @@ const CourseCard = ({ item }) => {
       onClick={() => goToDetailPage(item)}
       display="flex"
       alignItems="center"
-      
-      borderRadius="10px"
-      boxShadow="0px 20px 25px 0px rgba(0, 0, 0, 0.1), 0px 8px 10px 0px rgba(0, 0, 0, 0.1)"
+      borderRadius={12}
+            boxShadow="0px 20px 25px 0px rgba(0, 0, 0, 0.1), 0px 8px 10px 0px rgba(0, 0, 0, 0.1)"
      // backgroundColor="#ffffff"
       marginBottom="20px"
       backgroundColor={'#F6F6F6'}
@@ -44,7 +43,7 @@ const CourseCard = ({ item }) => {
         // padding="20px"
       />
       </Box>
-      <Flex flex="2" flexDirection="column" padding="20px" backgroundColor="#ffffff" >
+      <Flex flex="2" flexDirection="column" padding="20px" backgroundColor="#ffffff" borderRadius="0 12px 12px 0" >
         <Text
           fontSize="15px"
           fontWeight="600"

@@ -313,7 +313,7 @@ const Details = () => {
                 />
               </Box>
               <Box m={3}>
-                <Text fontSize={16} noOfLines={1} fontWeight="600" mb={2}>
+                <Text fontSize={17} noOfLines={1} fontWeight="600" mb={2}>
                   {item?.items[0]?.descriptor?.name}
                 </Text>
                 <HStack mb={2}>
@@ -347,7 +347,7 @@ const Details = () => {
                           />
                         )
                       )}
-                      <Text mt={1} fontSize={15}>
+                      <Text mt={1} fontSize={12}>
                         {item?.rating} {t("STARS")}
                       </Text>
                     </HStack>
@@ -369,9 +369,9 @@ const Details = () => {
                 <Button
                   type="submit"
                   onClick={Submit}
-                  width="20rem"
                   fontWeight={400}
                   borderRadius={"12px"}
+                  width="20rem"
                   variant="solid"
                   background={buttonCss?.primaryBtnColor}
                   color={buttonCss?.primaryTxtColor}

@@ -24,11 +24,11 @@ i18n.init({
 
 const rootElement = document.getElementById('root')
 ReactDOM.createRoot(rootElement).render(
-  <React.StrictMode>
+  // <React.StrictMode>
       <I18nextProvider i18n={i18n}>
       <ChakraProvider>
         <App />
       </ChakraProvider>
       </I18nextProvider>
-  </React.StrictMode>
+  // </React.StrictMode>
 )

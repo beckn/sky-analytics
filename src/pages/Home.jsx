@@ -8,6 +8,7 @@ import {
   Flex,
   IconButton,
   Text,
+  HStack,
 } from "@chakra-ui/react";
 import { IoIosSearch } from "react-icons/io";
 import { RxCrossCircled } from "react-icons/rx";
@@ -256,14 +257,17 @@ const Home = () => {
       <SubHeader title={t("SEARCH_RESULT")} cartItemCount={2} />
       {loading ? (<Loader />
       ) : (
-      <Box p={4} marginBottom="60px" marginTop="30px" marginX={{ base: 4, md: 8, lg: 16 }}>
+      <Box p={4} marginBottom="60px"  marginTop="30px" marginX={{ base: 4, md: 8, lg: 16 }}>
         {/* search bar */}
         <HStack alignItems="center" marginBottom={'30px'} width={'355px'}>
+
           {uiConfig?.isSearch && (
-            <InputGroup flex="0.5" mr={4}>
+            <InputGroup flex="0.5" mr={'10px'}  
+            height={'48px'}>
               <Input
                 type="text"
                 borderColor="#C9C9C9"
+                width={'355px'}
                 borderRadius={12}
                 placeholder={searchPlaceholder}
                 defaultValue={searchPlaceholder} // Set default value here
@@ -286,6 +290,7 @@ const Home = () => {
               icon={<MdFilterList />}
               onClick={() => setSelectedFilter("")}
               variant="ghost"
+              mb={1}
               fontSize="24px"
             />
           )}

@@ -27,7 +27,9 @@ const Search = () => {
   const [searchTxt, setSearchTxt] = useState("");
   const [location, setLocation] = useState("");
   const [year, setYear] = useState("");
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem('frequentlyData')));
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("frequentlyData"))
+  );
   const navigate = useNavigate();
 
   const cityLocations = [
@@ -64,7 +66,12 @@ const Search = () => {
       <SubHeader cartItemCount={2} back={false} />
       <Box maxW="600px" mx="auto" p="20px">
         <Center mb="20px">
-          <Image width={'302px'} height={'153px'} src={header?.headerContent?.logoSrc} alt="Logo" />
+          <Image
+            width={"302px"}
+            height={"153px"}
+            src={header?.headerContent?.logoSrc}
+            alt="Logo"
+          />
         </Center>
         <InputGroup mb="20px">
           <Input
@@ -154,84 +161,101 @@ const Search = () => {
           {t("SEARCH")}
         </Button>
 
-        { (items != null && items.length ) &&
-         <VStack justifyContent="flex-start" alignItems="flex-start">
-          <Text mt={10} mb={2} fontSize={"17px"}>
-            {t("FREQUESNTLY_ACCESSED")}
-          </Text>
+        {items != null && items.length && (
+          <VStack justifyContent="flex-start" alignItems="flex-start">
+            <Text mt={10} mb={2} fontSize={"17px"}>
+              {t("FREQUESNTLY_ACCESSED")}
+            </Text>
 
-          <HStack
-            justifyContent="flex-start"
-            flexWrap={{ base: "wrap", md: "nowrap" }}
-          >
-            {items?.map((item, index) => (
- (item?.message?.catalog?.providers.length > 0  && index < 3)&& 
-              <Card
-                background={"#F6F6F6"}
-                display="flex"
-                width={{ base: "full", md: "180px" }}
-                height={234}
-                direction="column"
-                overflow="hidden"
-                borderWidth="1px"
-                borderRadius="lg"
-                borderColor="gray.200"
-                minHeight="270px"
-                _hover={{ borderColor: "blue.400" }}
-                cursor="pointer"
-                boxShadow="rgba(0, 0, 0, 0.1) 7px 14px 17px -6px"
-                mb={6}
-                onClick={() => goTodetailPage(item)}
-                gap={"11px"}
-              >
-                <VStack flex={1}>
-                  <Box height="132px">
-                    <Image
-                      mt={5}
-                      height="100px"
-                      width="130px"
-                      src={item?.message?.catalog?.providers[0]?.descriptor?.images[0]?.url}
-                      alt="The house from the offer."
-                      objectFit="contain"
-                    />
-                  </Box>
-                  <Box bg={"#FFF"} borderRadius="lg" height="132px">
-                    <Box p={2}>
-                      <Text
-                        fontSize={15}
-                        noOfLines={2}
-                        fontWeight="600"
-                        mb={2}
-                      >
-                        {item?.message?.catalog?.providers[0]?.items[0]?.descriptor?.name}
-                      </Text>
-                      <HStack>
-                        <Text noOfLines={1} fontSize={12} mb={2}>
-                          {" "}
-                          {t("PROVIDED_BY")}: {item?.message?.catalog?.providers[0]?.descriptor?.name}
-                        </Text>
-                      </HStack>
-                      <HStack>
-                        <Text fontSize={12} noOfLines={1} mt={2} mb={2}>
-                          {" "}
-                          {item?.message?.catalog?.providers[0]?.tags[0]?.list[1]?.value}{" "}
-                          {t("YEARS_IN_OPERATION")}
-                        </Text>
-                        <HStack display="flex" alignItems="center">
-                          <Icon as={FaStar} color="#F4B73F" />
-                          <Box fontSize={12} ml={1}>
-                            {item?.message?.catalog?.providers[0]?.rating}
+            <HStack
+              justifyContent="flex-start"
+              flexWrap={{ base: "wrap", md: "nowrap" }}
+              spacing={11}
+            >
+              {items?.map(
+                (item, index) =>
+                  item?.message?.catalog?.providers.length > 0 &&
+                  index < 3 && (
+                    <Card
+                      background={"#F6F6F6"}
+                      display="flex"
+                      width={{ base: "full", md: "180px" }}
+                      height={234}
+                      direction="column"
+                      overflow="hidden"
+                      borderWidth="1px"
+                      borderRadius="lg"
+                      borderColor="gray.200"
+                      minHeight="270px"
+                      _hover={{ borderColor: "blue.400" }}
+                      cursor="pointer"
+                      boxShadow="rgba(0, 0, 0, 0.1) 7px 14px 17px -6px"
+                      mb={6}
+                      onClick={() => goTodetailPage(item)}
+                      gap={"11px"}
+                    >
+                      <VStack flex={1}>
+                        <Box height="132px">
+                          <Image
+                            mt={5}
+                            height="100px"
+                            width="130px"
+                            src={
+                              item?.message?.catalog?.providers[0]?.descriptor
+                                ?.images[0]?.url
+                            }
+                            alt="The house from the offer."
+                            objectFit="contain"
+                          />
+                        </Box>
+                        <Box bg={"#FFF"} borderRadius="lg" height="132px">
+                          <Box p={2}>
+                            <Text
+                              fontSize={15}
+                              noOfLines={2}
+                              fontWeight="600"
+                              mb={2}
+                            >
+                              {
+                                item?.message?.catalog?.providers[0]?.items[0]
+                                  ?.descriptor?.name
+                              }
+                            </Text>
+                            <HStack>
+                              <Text noOfLines={1} fontSize={12} mb={2}>
+                                {" "}
+                                {t("PROVIDED_BY")}:{" "}
+                                {
+                                  item?.message?.catalog?.providers[0]
+                                    ?.descriptor?.name
+                                }
+                              </Text>
+                            </HStack>
+                            <HStack>
+                              <Text fontSize={12} noOfLines={1} mt={2} mb={2}>
+                                {" "}
+                                {
+                                  item?.message?.catalog?.providers[0]?.tags[0]
+                                    ?.list[1]?.value
+                                }{" "}
+                                {t("YEARS_IN_OPERATION")}
+                              </Text>
+                              <HStack display="flex" alignItems="center">
+                                <Icon as={FaStar} color="#F4B73F" />
+                                <Box fontSize={12} ml={1}>
+                                  {item?.message?.catalog?.providers[0]?.rating}
+                                </Box>
+                              </HStack>
+                            </HStack>
                           </Box>
-                        </HStack>
-                      </HStack>
-                    </Box>
-                  </Box>
-                </VStack>
-              </Card>
-            ))}
-          </HStack>
-        </VStack> 
-}
+                        </Box>
+                      </VStack>
+                    </Card>
+                  )
+              )}
+            </HStack>
+          </VStack>
+        )}
         <Box mt={100}>
           {" "}
           <Footer />{" "}
