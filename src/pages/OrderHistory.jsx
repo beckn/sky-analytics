@@ -43,7 +43,7 @@ const OrderHistory = () => {
             my={4}
             px={4}
           >
-            <Heading as="h2" size="md"  mb={'10px'} fontSize={15} fontWeight={600}>
+            <Heading as="h2" size="md"  mb={'10px'}  fontSize={15} fontWeight={600}>
               {item?.descriptor?.name}{" "}
             </Heading>
             <Flex direction="column">
