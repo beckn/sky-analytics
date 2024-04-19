@@ -25,6 +25,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineHistory } from "react-icons/md";
 import { useLocation } from "react-router-dom"; 
 import { useNavigate } from 'react-router-dom';
+import orderhistory from '../assets/images/orderhistory.svg'; 
 
 function Header() {
   const { t } = useTranslation();
@@ -72,24 +73,48 @@ function Header() {
         {/* Right-hand side */}
         {!isHomePage && ( // Conditionally render the Menu
           <Menu>
-            <MenuButton
-              as={IconButton}
-              aria-label="Options"
-              rightIcon={<BsThreeDotsVertical />}
-              variant="unstyled"
+          <MenuButton
+            as={IconButton}
+            aria-label="Options"
+            rightIcon={<BsThreeDotsVertical />}
+            variant="unstyled"
+            _hover={{
+              bg: "none",
+              border: "none",
+              color: "#000",
+              padding: "0",
+            }}
+            _active={{
+              bg: "none",
+              border: "none",
+              color: "#000",
+              padding: "0",
+            }}
+          />
+          <MenuList>
+            <MenuItem 
+              onClick={handleOrderHistoryClick}
               _hover={{
                 bg: "none",
-                border: "none",
-                color: "inherit",
-                padding: "0",
+                color: "#000",
               }}
-            />
-            <MenuList>
-              <MenuItem icon={<MdOutlineHistory fontSize="1.5em"/>} onClick={handleOrderHistoryClick}>
-               {t('ORDER_HISTORY')}
-              </MenuItem>
-            </MenuList>
-          </Menu>
+              _active={{
+                bg: "none",
+                color: "#000",
+              }}
+            >
+              <img
+                src={orderhistory}
+                alt="Order History"
+                width="24"
+                height="24"
+                style={{ marginRight: "10px" }}
+              />
+              {t("ORDER_HISTORY")}
+            </MenuItem>
+          </MenuList>
+        </Menu>
+        
         )}
       </Flex>
       {/* Add padding to the top to prevent content from being hidden */}
