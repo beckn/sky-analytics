@@ -20,7 +20,7 @@ const Footer = () => {
 >
 <Flex justify="flex-end" alignItems="center">
         {/* Other footer content goes here */}
-        <Image src={footerImg} alt="Visa Logo" width="74px" height="23px"  mr={103}/>
+        {/* <Image src={footerImg} alt="Visa Logo" width="74px" height="23px"  mr={103}/> */}
     </Flex>
     {/* Other footer content goes here */}
 </Box>
