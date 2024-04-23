@@ -322,7 +322,7 @@ const Details = () => {
                   </Text>
                   <Text fontSize={15}>{item?.descriptor?.name} </Text>
                 </HStack>
-                {item?.rating && (
+                {/* {item?.rating && (
                   <HStack>
                     <HStack>
                       {[...Array(filledStars)].map((_, index) => (
@@ -336,7 +336,6 @@ const Details = () => {
                       {hasHalfStar && (
                         <Icon as={BsStarHalf} color="yellow.400" />
                       )}{" "}
-                      {/* Display half star if applicable */}
                       {[...Array(5 - filledStars - (hasHalfStar ? 1 : 0))].map(
                         (_, index) => (
                           <Icon
@@ -352,7 +351,7 @@ const Details = () => {
                       </Text>
                     </HStack>
                   </HStack>
-                )}
+                )} */}
               </Box>
             </HStack>
             <Box>

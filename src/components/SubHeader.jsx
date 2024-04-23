@@ -43,7 +43,7 @@ const SubHeader = ({ title, cartItemCount, back = true }) => {
                     // onClick={handleCartClick}
                     cursor="pointer"  
                 >
-                    <Icon as={FiShoppingCart} boxSize="20px" />
+                    {/* <Icon as={FiShoppingCart} boxSize="20px" /> */}
                     {/* {(
                         <Badge
                             position="absolute"
