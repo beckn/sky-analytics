@@ -175,7 +175,7 @@ export default function Login() {
                                 <Text>{t('DONT_HAVE_ACCOUNT')}</Text>
                                 <Text color={buttonCss?.primaryBtnColor} ml={1}> {t('SIGN_UP')}</Text>
                             </Box> */}
-                <HStack my={4} mt={"50px"} mx={20}>
+                {/* <HStack my={4} mt={"50px"} mx={20}>
                   <Image src={poweredBy} height={"21px"} alt="Forum Logo" />
                   <Image
                     height={"17px"}
@@ -183,7 +183,7 @@ export default function Login() {
                     src={beckn}
                     alt="Forum Logo"
                   />
-                </HStack>
+                </HStack> */}
               </VStack>
             </form>
           </Box>

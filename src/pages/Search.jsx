@@ -12,6 +12,7 @@ import {
   Text, // Add missing import
   Card,
   Icon,
+  Flex,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { useTranslation } from "react-i18next";
@@ -49,9 +50,11 @@ const Search = () => {
   ];
 
   const searchData = async () => {
-    console.log(searchTxt + " - " + year + " - " + location);
+    // console.log(searchTxt + " - " + year + " - " + location);
+    console.log(searchTxt);
     navigate("/home", {
-      state: { searchTxt: searchTxt, year: year, location: location },
+      state: { searchTxt: searchTxt },
+      // state: { searchTxt: searchTxt, year: year, location: location },
     });
   };
 
@@ -63,43 +66,49 @@ const Search = () => {
 
   return (
     <>
-      <SubHeader cartItemCount={2} back={false} />
-      <Box maxW="600px" mx="auto" p="20px">
-        <Center mb="20px">
-          <Image
-            width={"302px"}
-            height={"153px"}
-            src={header?.headerContent?.logoSrc}
-            alt="Logo"
-          />
-        </Center>
-        <InputGroup mb="20px">
-          <Input
-            type="text"
-            width="544px"
-            height="56px"
-            autoComplete="searchTxt"
-            value={searchTxt}
-            placeholder={t("SEARCH_FOR")}
-            onChange={(e) => setSearchTxt(e.target.value)}
-            id="searchTxt"
-            fontSize={15}
-            boxShadow="0px 10px 24px 0px rgba(0, 0, 0, 0.1)"
-            _focus={{
-              boxShadow: "0px 10px 24px 0px rgba(0, 0, 0, 0.1)",
-            }}
-            border="none"
-            borderColor="transparent"
-            _placeholder={{
-              fontFamily: "Poppins",
-              fontStyle: "italic",
-              fontWeight: 400,
-              fontSize: "15px",
-              lineHeight: "22.5px",
-            }}
-          />
-        </InputGroup>
-        <Select
+      <Flex
+        height="100vh"
+        justifyContent="center"
+        alignItems="center"
+        overflow="hidden"
+      >
+        {/* <SubHeader cartItemCount={2} back={false} /> */}
+        <Box maxW="600px" mx="auto" p="20px">
+          <Center mb="20px">
+            <Image
+              width={"302px"}
+              height={"153px"}
+              src={header?.headerContent?.logoSrc}
+              alt="Logo"
+            />
+          </Center>
+          <InputGroup mb="20px">
+            <Input
+              type="text"
+              width="544px"
+              height="56px"
+              autoComplete="searchTxt"
+              value={searchTxt}
+              placeholder={t("SEARCH_FOR")}
+              onChange={(e) => setSearchTxt(e.target.value)}
+              id="searchTxt"
+              fontSize={15}
+              boxShadow="0px 10px 24px 0px rgba(0, 0, 0, 0.1)"
+              _focus={{
+                boxShadow: "0px 10px 24px 0px rgba(0, 0, 0, 0.1)",
+              }}
+              border="none"
+              borderColor="transparent"
+              _placeholder={{
+                fontFamily: "Poppins",
+                fontStyle: "italic",
+                fontWeight: 400,
+                fontSize: "15px",
+                lineHeight: "22.5px",
+              }}
+            />
+          </InputGroup>
+          {/* <Select
           mb="20px"
           id="location"
           width="544px"
@@ -123,8 +132,8 @@ const Search = () => {
               {city}
             </option>
           ))}
-        </Select>
-        {/* <Select
+        </Select> */}
+          {/* <Select
           defaultValue="1"
           mb="20px"
           id="year"
@@ -146,22 +155,22 @@ const Search = () => {
             </option>
           ))}
         </Select> */}
-        <Button
-          width="544px"
-          height="48px"
-          fontWeight={400}
-          borderRadius={"12px"}
-          onClick={searchData}
-          type="submit"
-          variant="solid"
-          background={buttonCss?.primaryBtnColor}
-          color={buttonCss?.primaryTxtColor}
-          _hover={{ bg: buttonCss?.primaryBtnHoverColor }}
-        >
-          {t("SEARCH")}
-        </Button>
+          <Button
+            width="544px"
+            height="48px"
+            fontWeight={400}
+            borderRadius={"12px"}
+            onClick={searchData}
+            type="submit"
+            variant="solid"
+            background={buttonCss?.primaryBtnColor}
+            color={buttonCss?.primaryTxtColor}
+            _hover={{ bg: buttonCss?.primaryBtnHoverColor }}
+          >
+            {t("SEARCH")}
+          </Button>
 
-        {items != null && items.length && (
+          {/* {items != null && items.length && (
           <VStack justifyContent="flex-start" alignItems="flex-start">
             <Text mt={10} mb={2} fontSize={"17px"}>
               {t("FREQUESNTLY_ACCESSED")}
@@ -255,12 +264,13 @@ const Search = () => {
               )}
             </HStack>
           </VStack>
-        )}
-        <Box mt={100}>
-          {" "}
-          <Footer />{" "}
+        )} */}
+          <Box mt={100}>
+            {" "}
+            <Footer />{" "}
+          </Box>
         </Box>
-      </Box>
+      </Flex>
     </>
   );
 };

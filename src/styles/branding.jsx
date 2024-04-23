@@ -33,7 +33,7 @@ export const header = {
   headerContent: {
     id: "logo",
     title1: "Sky Analytics",
-    title2: "Platform for Climate Resilient Data Highways",
+    title2: "Platform for Climate Resilience Data Highways",
     logoSrc: appIcon,
     headerLogo: headerLogo,
     appTitleColor: "rgba(44, 93, 134, 1)",
