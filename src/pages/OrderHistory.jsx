@@ -7,7 +7,8 @@ import onConfirm from "../assets/apiJson/on_confirm.json";
 const OrderHistory = () => {
   const { t } = useTranslation();
   // const [items, setItems] = useState(onConfirm.message.order);
-  const data = localStorage.getItem('requestHistory')? JSON.parse(localStorage.getItem('requestHistory')) : onConfirm.message.order;
+  // const data = localStorage.getItem('requestHistory')? JSON.parse(localStorage.getItem('requestHistory')) : onConfirm.message.order;
+  const data = JSON.parse(localStorage.getItem("requestHistory"));
   const [oItem, setItem] = useState(data);
 
   const formatDate = (dateStr) => {
@@ -32,33 +33,42 @@ const OrderHistory = () => {
     <Box>
       <SubHeader title={t("ORDER_HISTORY")} cartItemCount={2} />
       <Box maxWidth="1200px" mx="auto" px={4}>
-        {oItem?.items.map((item, index) => (
-          <Box
-            key={index}
-            boxShadow="0px 20px 25px 0px rgba(0, 0, 0, 0.1), 0px 8px 10px 0px rgba(0, 0, 0, 0.1)"
-            p={6}
-            borderRadius="md"
-            bg="white"
-            width="100%"
-            my={4}
-            px={4}
-          >
-            <Heading as="h2" size="md" mb={3} fontSize={15} fontWeight={600}>
-              {item?.descriptor?.name}{" "}
-            </Heading>
-            <Flex direction="column">
-              <Text fontSize={12} fontWeight={400} mb={3}>
-                {t("PROVIDED_BY")}: {oItem?.provider?.descriptor?.name}
-              </Text>
-              <Text fontSize={12} fontWeight={400} mb={3} noOfLines={2}>
-                {item?.descriptor?.short_desc}
-              </Text>
-            { oItem?.fulfillments &&   <Text fontSize={12} fontWeight={400}>
-                {t("Placed at")} {formatDate(oItem?.fulfillments[0]?.state?.updated_at)}
-              </Text>}
-            </Flex>
-          </Box>
-        ))}
+        {oItem?.items && oItem.items.length > 0 ? (
+          oItem.items.map((item, index) => (
+            <Box
+              key={index}
+              boxShadow="0px 20px 25px 0px rgba(0, 0, 0, 0.1), 0px 8px 10px 0px rgba(0, 0, 0, 0.1)"
+              p={6}
+              borderRadius="md"
+              bg="white"
+              width="100%"
+              my={4}
+              px={4}
+            >
+              <Heading as="h2" size="md" mb={3} fontSize={15} fontWeight={600}>
+                {item?.descriptor?.name}{" "}
+              </Heading>
+              <Flex direction="column">
+                <Text fontSize={12} fontWeight={400} mb={3}>
+                  {t("PROVIDED_BY")}: {oItem?.provider?.descriptor?.name}
+                </Text>
+                <Text fontSize={12} fontWeight={400} mb={3} noOfLines={2}>
+                  {item?.descriptor?.short_desc}
+                </Text>
+                {oItem?.fulfillments && (
+                  <Text fontSize={12} fontWeight={400}>
+                    {t("Placed at")}{" "}
+                    {formatDate(oItem?.fulfillments[0]?.state?.updated_at)}
+                  </Text>
+                )}
+              </Flex>
+            </Box>
+          ))
+        ) : (
+          <Text textAlign="center" fontSize={16} mt={10}>
+            {t("No History Available")}
+          </Text>
+        )}
       </Box>
     </Box>
   );
