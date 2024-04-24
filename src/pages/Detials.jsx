@@ -172,6 +172,10 @@ const Details = () => {
       subscriptionDuration !== undefined &&
       subscriptionDuration.list.length > 0;
 
+    const isTermsAccepted = JSON.parse(
+      localStorage.getItem("dataShare")
+    ).isTermsAccepted; // Add this line
+
     console.log("Is Data formats set:", isDataFormatsSet);
     console.log("Is Subscription duration set:", isSubscriptionDurationSet);
 
@@ -179,8 +183,9 @@ const Details = () => {
     const isDataShareSet = dataShare != "{}";
 
     console.log("Is dataShare key set:", isDataShareSet);
+    console.log("Is Terms of Use accepted:", isTermsAccepted); // Add this line
 
-    if (isDataFormatsSet && isSubscriptionDurationSet && isDataShareSet) {
+    if (isDataFormatsSet && isSubscriptionDurationSet && isDataShareSet && isTermsAccepted) {
       navigate("/requestoverview", {
         state: { item: state?.item },
       });
@@ -322,7 +327,7 @@ const Details = () => {
                   </Text>
                   <Text fontSize={15}>{item?.descriptor?.name} </Text>
                 </HStack>
-                {item?.rating && (
+                {/* {item?.rating && (
                   <HStack>
                     <HStack>
                       {[...Array(filledStars)].map((_, index) => (
@@ -336,7 +341,6 @@ const Details = () => {
                       {hasHalfStar && (
                         <Icon as={BsStarHalf} color="yellow.400" />
                       )}{" "}
-                      {/* Display half star if applicable */}
                       {[...Array(5 - filledStars - (hasHalfStar ? 1 : 0))].map(
                         (_, index) => (
                           <Icon
@@ -352,7 +356,7 @@ const Details = () => {
                       </Text>
                     </HStack>
                   </HStack>
-                )}
+                )} */}
               </Box>
             </HStack>
             <Box>
