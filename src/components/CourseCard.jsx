@@ -78,12 +78,12 @@ const CourseCard = ({ item }) => {
           >
            {t('LICENSE')}  {sItem?.tags[0]?.list[0]?.value} | {sItem?.tags[0]?.list[1]?.value} {t('YEARS_IN_OPERATION')}
           </Text>
-          <Flex alignItems="center">
+          {/* <Flex alignItems="center">
             <Icon as={FaStar} color="yellow.400" />
             <Text fontSize="12px" fontWeight="400" lineHeight="18px" marginLeft="5px">
               {sItem?.rating || "4.5"}
             </Text>
-          </Flex>
+          </Flex> */}
         </Flex>
       </Flex>
     </Box>)
