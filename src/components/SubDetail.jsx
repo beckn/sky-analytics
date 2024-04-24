@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import {
   Box,
@@ -36,6 +36,13 @@ const SubDetail = () => {
   const [item, setSItem] = useState(
     state?.item?.message?.catalog?.providers[0]
   );
+  const [isTermsAccepted, setIsTermsAccepted] = useState(false); // Add this line
+  useEffect(() => {
+    // Set the initial checkbox value
+    setIsTermsAccepted(
+      JSON.parse(localStorage.getItem("dataShare")).isTermsAccepted || false
+    );
+  }, []);
 
   const handleRadioChange = (id, type) => {
     console.log("dataShare", id);
@@ -115,6 +122,13 @@ const SubDetail = () => {
         ])
       );
     }
+  };
+  const handleTermsChange = () => {
+    setIsTermsAccepted(!isTermsAccepted); // Toggle the terms acceptance
+    localStorage.setItem(
+      "dataShare",
+      JSON.stringify({ ...JSON.parse(localStorage.getItem("dataShare")), isTermsAccepted: !isTermsAccepted }) // Update the terms acceptance in local storage
+    );
   };
 
   return (
@@ -293,6 +307,24 @@ const SubDetail = () => {
               )
           )}
         </Flex>
+      </Card>
+      <Card
+        mt={5}
+        p={5}
+        borderRadius="12px"
+        border="1px solid rgba(191, 191, 191, 1)"
+      >
+        <Box key="terms">
+          <Checkbox
+            fontSize={12}
+            isChecked={isTermsAccepted}
+            onChange={handleTermsChange} // Update the terms change handler
+          >
+            <Text fontSize={12}>
+              {t("I_ACCEPT_THE_TERMS_OF_USE")}
+            </Text>
+          </Checkbox>
+        </Box>
       </Card>
     </>
   );

@@ -172,6 +172,10 @@ const Details = () => {
       subscriptionDuration !== undefined &&
       subscriptionDuration.list.length > 0;
 
+    const isTermsAccepted = JSON.parse(
+      localStorage.getItem("dataShare")
+    ).isTermsAccepted; // Add this line
+
     console.log("Is Data formats set:", isDataFormatsSet);
     console.log("Is Subscription duration set:", isSubscriptionDurationSet);
 
@@ -179,8 +183,9 @@ const Details = () => {
     const isDataShareSet = dataShare != "{}";
 
     console.log("Is dataShare key set:", isDataShareSet);
+    console.log("Is Terms of Use accepted:", isTermsAccepted); // Add this line
 
-    if (isDataFormatsSet && isSubscriptionDurationSet && isDataShareSet) {
+    if (isDataFormatsSet && isSubscriptionDurationSet && isDataShareSet && isTermsAccepted) {
       navigate("/requestoverview", {
         state: { item: state?.item },
       });
